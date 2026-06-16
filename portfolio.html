@@ -1,35 +1,189 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-<title>แฟ้มสะสมงานของฉัน  </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แฟ้มสะสมงานของฉัน</title>
+
 <style>
-body { font-family: sans-serif; background-color: #99FFFF; text-align: center;
-padding: 30px; }
-.container { max-width: 800px; margin: 0 auto; }
-.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
-8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-.btn { display: inline-block; background: #2c3e50; color: white; padding: 10px
-20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+body{
+    font-family: "Sarabun", sans-serif;
+    background-color: #99FFFF;
+    margin: 0;
+    padding: 30px;
+}
+
+.container{
+    max-width: 900px;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+    color: #2c3e50;
+}
+
+.subtitle{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile{
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.profile img{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #2c3e50;
+}
+
+.project-card{
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.project-card h3{
+    color: #2c3e50;
+}
+
+.skill-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill{
+    background: #2c3e50;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.btn{
+    display: inline-block;
+    background: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.footer{
+    text-align: center;
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
-<h1> แฟ้มสะสมงาน (Portfolio)</h1>
-<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจค่ะ</p>
-<!-- กล่องผลงานชนที่่ 1 -->
-<div class="project-card">
-<h3>1. โครงงาน/ชนงานวิทยาศาสตร์คำนวณ  </h3>
-<p>รายละเอียดชิ้นงาน : เขียนอธิบายสั้นๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง  </p>
+
+    <h1>แฟ้มสะสมงาน (Portfolio)</h1>
+    <p class="subtitle">พื้นที่รวบรวมผลงาน กิจกรรม และความภาคภูมิใจของฉัน</p>
+
+    <!-- โปรไฟล์ -->
+    <div class="profile">
+        <img src="profile.jpg" alt="รูปโปรไฟล์">
+
+        <h2>นางสาว................................</h2>
+
+        <p><strong>ระดับชั้น:</strong> มัธยมศึกษาปีที่ ....</p>
+        <p><strong>โรงเรียน:</strong> ................................</p>
+
+        <p>
+            📧 Email : yourmail@example.com <br>
+            📱 โทร : 08X-XXX-XXXX
+        </p>
+
+        <p>
+            ดิฉันมีความสนใจด้านวิทยาศาสตร์คำนวณ เทคโนโลยี
+            และการสร้างสรรค์ผลงานดิจิทัล
+            มุ่งมั่นพัฒนาตนเองและเรียนรู้สิ่งใหม่อยู่เสมอ
+        </p>
+    </div>
+
+    <!-- ประวัติส่วนตัว -->
+    <div class="project-card">
+        <h3>ข้อมูลส่วนตัว</h3>
+        <p><strong>ชื่อ-สกุล:</strong> ................................</p>
+        <p><strong>วันเกิด:</strong> ................................</p>
+        <p><strong>ที่อยู่:</strong> ................................</p>
+        <p><strong>งานอดิเรก:</strong> อ่านหนังสือ ฟังเพลง เขียนโปรแกรม และเล่นกีฬา</p>
+    </div>
+
+    <!-- ผลงาน -->
+    <div class="project-card">
+        <h3>1. โครงงานวิทยาศาสตร์คำนวณ</h3>
+        <p>
+            จัดทำเว็บไซต์ด้วยภาษา HTML และ CSS
+            เพื่อใช้เป็นแฟ้มสะสมงานออนไลน์
+            ได้เรียนรู้การออกแบบเว็บไซต์และการจัดรูปแบบหน้าเว็บ
+        </p>
+    </div>
+
+    <div class="project-card">
+        <h3>2. การสร้างโปรแกรมด้วย Scratch</h3>
+        <p>
+            สร้างเกมการศึกษาโดยใช้โปรแกรม Scratch
+            เพื่อส่งเสริมการเรียนรู้และฝึกทักษะการคิดเชิงคำนวณ
+        </p>
+    </div>
+
+    <!-- กิจกรรม -->
+    <div class="project-card">
+        <h3>กิจกรรมและเกียรติบัตร</h3>
+        <ul>
+            <li>เข้าร่วมกิจกรรมวันวิทยาศาสตร์แห่งชาติ</li>
+            <li>เข้าร่วมการแข่งขันตอบปัญหาคอมพิวเตอร์</li>
+            <li>ได้รับเกียรติบัตรการอบรม Coding</li>
+            <li>เข้าร่วมกิจกรรมจิตอาสาของโรงเรียน</li>
+        </ul>
+    </div>
+
+    <!-- ทักษะ -->
+    <div class="project-card">
+        <h3>ทักษะ (Skills)</h3>
+
+        <div class="skill-list">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">Scratch</div>
+            <div class="skill">Microsoft Office</div>
+            <div class="skill">Canva</div>
+            <div class="skill">การทำงานเป็นทีม</div>
+        </div>
+    </div>
+
+    <!-- เป้าหมาย -->
+    <div class="project-card">
+        <h3>เป้าหมายในอนาคต</h3>
+        <p>
+            ต้องการศึกษาต่อในสาขาเทคโนโลยีสารสนเทศ
+            หรือวิทยาการคอมพิวเตอร์
+            เพื่อพัฒนาความรู้ด้านการเขียนโปรแกรมและนวัตกรรมดิจิทัล
+        </p>
+    </div>
+
+    <!-- ปุ่มกลับ -->
+    <div class="footer">
+        <a href="index.html" class="btn">กลับหน้าแรก</a>
+    </div>
+
 </div>
-<!-- กล่องผลงานชิ้นนี้ 2 -->
-<div class="project-card">
-<h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดชิ้นงาน : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
-</div>
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
-</div>
+
 </body>
 </html>
+```
