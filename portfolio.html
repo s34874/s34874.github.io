@@ -1,5 +1,5 @@
-```html
 <!DOCTYPE html>
+
 <html lang="th">
 <head>
 
@@ -12,7 +12,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 
 <style>
 
@@ -54,15 +53,10 @@
     box-sizing:border-box;
 }
 
-
 html{
-
     scroll-behavior:smooth;
-
     scroll-padding-top:130px;
-
 }
-
 
 body{
 
@@ -216,96 +210,64 @@ body{
 
 }
 
-
 .heart{
     color:#ff8fc2;
 }
-
 
 .star{
     color:#ae91ec;
 }
 
-
 .blue-star{
     color:#73cfff;
 }
 
-
 .f1{
-
     top:12%;
     left:7%;
-
     font-size:27px;
-
 }
-
 
 .f2{
-
     top:25%;
     right:9%;
-
     font-size:21px;
-
     animation-delay:1s;
-
 }
-
 
 .f3{
-
     top:47%;
     left:4%;
-
     font-size:18px;
-
     animation-delay:2s;
-
 }
-
 
 .f4{
-
     top:70%;
     right:7%;
-
     font-size:29px;
-
     animation-delay:1.5s;
-
 }
-
 
 .f5{
-
     bottom:8%;
     left:12%;
-
     font-size:19px;
-
     animation-delay:3s;
-
 }
-
 
 @keyframes float{
 
     0%,100%{
-
         transform:
             translateY(0)
             rotate(0deg);
-
     }
 
     50%{
-
         transform:
             translateY(-18px)
             rotate(8deg);
-
     }
 
 }
@@ -346,7 +308,6 @@ body{
 
 }
 
-
 .nav{
 
     display:flex;
@@ -373,7 +334,6 @@ body{
 
 }
 
-
 .nav a{
 
     padding:8px 14px;
@@ -389,7 +349,6 @@ body{
     transition:.3s ease;
 
 }
-
 
 .nav a:hover{
 
@@ -421,7 +380,6 @@ header{
 
 }
 
-
 .top-badge{
 
     width:max-content;
@@ -445,7 +403,6 @@ header{
     animation:fadeDown .8s ease both;
 
 }
-
 
 header h1{
 
@@ -479,7 +436,6 @@ header h1{
 
 }
 
-
 header p{
 
     margin-top:18px;
@@ -492,7 +448,6 @@ header p{
 
 }
 
-
 @keyframes titleGradient{
 
     to{
@@ -501,69 +456,48 @@ header p{
 
 }
 
-
 @keyframes titleIn{
 
     from{
-
         opacity:0;
-
         transform:
             translateY(25px)
             scale(.95);
-
     }
 
     to{
-
         opacity:1;
-
         transform:
             translateY(0)
             scale(1);
-
     }
 
 }
-
 
 @keyframes fadeDown{
 
     from{
-
         opacity:0;
-
         transform:translateY(-20px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
 
 }
 
-
 @keyframes fadeUp{
 
     from{
-
         opacity:0;
-
         transform:translateY(25px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
 
 }
@@ -609,7 +543,6 @@ header p{
 
 }
 
-
 .profile::before{
 
     content:"";
@@ -622,7 +555,6 @@ header p{
     border-radius:50%;
 
     background:
-
         radial-gradient(
             circle,
             rgba(255,157,207,.35),
@@ -633,7 +565,6 @@ header p{
     right:-90px;
 
 }
-
 
 .profile::after{
 
@@ -647,7 +578,6 @@ header p{
     border-radius:50%;
 
     background:
-
         radial-gradient(
             circle,
             rgba(151,219,255,.35),
@@ -678,7 +608,6 @@ header p{
 
 }
 
-
 .character-glow{
 
     position:absolute;
@@ -689,7 +618,6 @@ header p{
     border-radius:50%;
 
     background:
-
         radial-gradient(
             circle,
             rgba(255,255,255,.9) 0%,
@@ -705,7 +633,6 @@ header p{
         circleFloat 5s ease-in-out infinite;
 
 }
-
 
 .character-frame{
 
@@ -727,7 +654,6 @@ header p{
     border-radius:35px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.95),
@@ -750,7 +676,6 @@ header p{
 
 }
 
-
 .character-frame::before{
 
     content:"";
@@ -766,7 +691,6 @@ header p{
     pointer-events:none;
 
 }
-
 
 .character{
 
@@ -788,7 +712,6 @@ header p{
 
 }
 
-
 .mini-bow{
 
     position:absolute;
@@ -804,7 +727,6 @@ header p{
 
 }
 
-
 .image-decoration{
 
     position:absolute;
@@ -817,34 +739,22 @@ header p{
 
 }
 
-
 .image-decoration.one{
-
     left:15px;
     top:55px;
-
 }
-
 
 .image-decoration.two{
-
     right:5px;
     bottom:50px;
-
     animation-delay:1s;
-
 }
-
 
 .image-decoration.three{
-
     left:30px;
     bottom:30px;
-
     animation-delay:2s;
-
 }
-
 
 @keyframes circleFloat{
 
@@ -858,27 +768,21 @@ header p{
 
 }
 
-
 @keyframes characterFloat{
 
     0%,100%{
-
         transform:
             translateY(0)
             rotate(-1deg);
-
     }
 
     50%{
-
         transform:
             translateY(-10px)
             rotate(1deg);
-
     }
 
 }
-
 
 @keyframes wiggle{
 
@@ -905,7 +809,6 @@ header p{
 
 }
 
-
 .profile-label{
 
     display:inline-flex;
@@ -927,7 +830,6 @@ header p{
 
 }
 
-
 .profile h2{
 
     font-family:"Itim",cursive;
@@ -939,7 +841,6 @@ header p{
     margin-bottom:20px;
 
 }
-
 
 .info{
 
@@ -953,13 +854,9 @@ header p{
 
 }
 
-
 .info strong{
-
     color:#755c82;
-
 }
-
 
 .description{
 
@@ -970,7 +867,6 @@ header p{
     border-radius:22px;
 
     background:
-
         linear-gradient(
             135deg,
             rgba(255,232,243,.8),
@@ -989,11 +885,8 @@ header p{
 ========================================================= */
 
 .section{
-
     scroll-margin-top:130px;
-
 }
-
 
 .section-title{
 
@@ -1009,7 +902,6 @@ header p{
 
 }
 
-
 .section-title .icon{
 
     width:50px;
@@ -1023,7 +915,6 @@ header p{
     border-radius:17px;
 
     background:
-
         linear-gradient(
             135deg,
             #ffb3d6,
@@ -1038,7 +929,6 @@ header p{
         0 10px 25px rgba(190,130,210,.2);
 
 }
-
 
 .section-title h2{
 
@@ -1079,7 +969,6 @@ header p{
 
 }
 
-
 .card:hover{
 
     transform:translateY(-5px);
@@ -1088,7 +977,6 @@ header p{
         0 22px 50px rgba(160,110,190,.2);
 
 }
-
 
 .card h3{
 
@@ -1101,7 +989,6 @@ header p{
     margin-bottom:12px;
 
 }
-
 
 .card p{
 
@@ -1123,7 +1010,6 @@ header p{
     padding:40px;
 
     background:
-
         linear-gradient(
             135deg,
             rgba(255,255,255,.82),
@@ -1131,7 +1017,6 @@ header p{
         );
 
 }
-
 
 .intro-icon{
 
@@ -1142,7 +1027,6 @@ header p{
     animation:float 4s ease-in-out infinite;
 
 }
-
 
 .introduction p{
 
@@ -1172,7 +1056,6 @@ header p{
 
 }
 
-
 .personal-item{
 
     padding:18px;
@@ -1187,7 +1070,6 @@ header p{
 
 }
 
-
 .personal-item:hover{
 
     transform:translateY(-4px);
@@ -1195,7 +1077,6 @@ header p{
     background:white;
 
 }
-
 
 .personal-item span{
 
@@ -1209,11 +1090,8 @@ header p{
 
 }
 
-
 .personal-item strong{
-
     color:#624d6c;
-
 }
 
 
@@ -1232,7 +1110,6 @@ header p{
 
 }
 
-
 .interest-card{
 
     text-align:center;
@@ -1240,7 +1117,6 @@ header p{
     padding:30px 20px;
 
 }
-
 
 .interest-icon{
 
@@ -1293,7 +1169,6 @@ header p{
 
 }
 
-
 .certificate-card:hover{
 
     transform:translateY(-8px);
@@ -1319,7 +1194,6 @@ header p{
     overflow:hidden;
 
     background:
-
         linear-gradient(
             135deg,
             #ffe0ee,
@@ -1327,7 +1201,6 @@ header p{
         );
 
 }
-
 
 .certificate-photo img{
 
@@ -1341,7 +1214,6 @@ header p{
         filter .5s ease;
 
 }
-
 
 .certificate-card:hover
 .certificate-photo img{
@@ -1378,14 +1250,12 @@ header p{
 
 }
 
-
 .certificate-card:hover
 .photo-overlay{
 
     opacity:1;
 
 }
-
 
 .photo-overlay span{
 
@@ -1418,7 +1288,6 @@ header p{
 
 }
 
-
 .certificate-number{
 
     display:inline-flex;
@@ -1439,7 +1308,6 @@ header p{
     font-weight:600;
 
     background:
-
         linear-gradient(
             135deg,
             #ff9fca,
@@ -1450,7 +1318,6 @@ header p{
         0 8px 18px rgba(180,120,190,.2);
 
 }
-
 
 .certificate-info h3{
 
@@ -1463,7 +1330,6 @@ header p{
     margin-bottom:8px;
 
 }
-
 
 .certificate-info p{
 
@@ -1504,7 +1370,6 @@ header p{
 
 }
 
-
 .lightbox.active{
 
     display:flex;
@@ -1512,7 +1377,6 @@ header p{
     animation:lightboxIn .3s ease;
 
 }
-
 
 @keyframes lightboxIn{
 
@@ -1526,7 +1390,6 @@ header p{
 
 }
 
-
 .lightbox-content{
 
     position:relative;
@@ -1538,7 +1401,6 @@ header p{
     text-align:center;
 
 }
-
 
 .lightbox img{
 
@@ -1559,7 +1421,6 @@ header p{
 
 }
 
-
 @keyframes imageZoom{
 
     from{
@@ -1572,7 +1433,6 @@ header p{
 
 }
 
-
 .lightbox-title{
 
     margin-top:15px;
@@ -1584,7 +1444,6 @@ header p{
     font-size:25px;
 
 }
-
 
 .close-lightbox{
 
@@ -1616,7 +1475,6 @@ header p{
 
 }
 
-
 .close-lightbox:hover{
 
     transform:
@@ -1635,7 +1493,6 @@ header p{
     text-align:center;
 
     background:
-
         linear-gradient(
             135deg,
             rgba(255,230,243,.82),
@@ -1643,7 +1500,6 @@ header p{
         );
 
 }
-
 
 .contact-grid{
 
@@ -1658,7 +1514,6 @@ header p{
 
 }
 
-
 .contact-item{
 
     padding:20px;
@@ -1671,7 +1526,6 @@ header p{
 
 }
 
-
 .contact-item:hover{
 
     transform:translateY(-5px);
@@ -1679,7 +1533,6 @@ header p{
     background:white;
 
 }
-
 
 .contact-icon{
 
@@ -1690,7 +1543,6 @@ header p{
     margin-bottom:7px;
 
 }
-
 
 .contact-item span:not(.contact-icon){
 
@@ -1703,7 +1555,6 @@ header p{
     margin-bottom:4px;
 
 }
-
 
 .contact-item strong{
 
@@ -1726,7 +1577,6 @@ header p{
 
 }
 
-
 .btn{
 
     display:inline-flex;
@@ -1748,7 +1598,6 @@ header p{
     font-weight:500;
 
     background:
-
         linear-gradient(
             90deg,
             #ff91c4,
@@ -1765,7 +1614,6 @@ header p{
 
 }
 
-
 .btn:hover{
 
     transform:
@@ -1775,7 +1623,6 @@ header p{
     background-position:right center;
 
 }
-
 
 .footer-text{
 
@@ -1795,244 +1642,142 @@ header p{
 @media(max-width:800px){
 
     html{
-
         scroll-padding-top:155px;
-
     }
-
 
     .nav{
-
         border-radius:25px;
-
     }
-
 
     .nav a{
-
         font-size:12px;
-
         padding:7px 10px;
-
     }
-
 
     .profile{
-
         grid-template-columns:1fr;
-
         text-align:center;
-
         padding:30px 22px;
-
     }
-
 
     .character-area{
-
         min-height:340px;
-
     }
-
 
     .character-frame{
-
         width:280px;
         height:310px;
-
     }
-
 
     .profile-label{
-
         margin:auto auto 14px;
-
     }
-
 
     .info{
-
         justify-items:center;
-
     }
-
 
     .description{
-
         text-align:left;
-
     }
-
 
     .personal-grid,
     .interest-grid,
     .contact-grid{
-
         grid-template-columns:1fr;
-
     }
 
-
     .certificate-gallery{
-
         grid-template-columns:1fr;
-
     }
 
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media(max-width:480px){
 
     html{
-
         scroll-padding-top:160px;
-
     }
-
 
     .container{
-
         width:90%;
-
         padding-top:20px;
-
     }
-
 
     .navbar{
-
         top:8px;
-
     }
-
 
     .nav{
-
         width:100%;
-
         gap:4px;
-
         padding:8px;
-
     }
-
 
     .nav a{
-
         font-size:11px;
-
         padding:6px 8px;
-
     }
-
 
     header h1{
-
         font-size:50px;
-
     }
-
 
     header p{
-
         font-size:14px;
-
     }
-
 
     .profile{
-
         border-radius:27px;
-
     }
-
 
     .character-area{
-
         min-height:300px;
-
     }
-
 
     .character-glow{
-
         width:280px;
         height:280px;
-
     }
-
 
     .character-frame{
-
         width:245px;
         height:275px;
-
         padding:14px;
-
         border-radius:30px;
-
     }
-
 
     .character{
-
         border-radius:18px;
-
     }
-
 
     .section-title h2{
-
         font-size:28px;
-
     }
-
 
     .card{
-
         padding:23px;
-
     }
-
 
     .certificate-photo{
-
         height:300px;
-
     }
-
 
     .certificate-info{
-
         padding:20px;
-
     }
-
 
     .lightbox{
-
         padding:15px;
-
     }
-
 
     .lightbox img{
-
         max-height:70vh;
-
     }
 
-
     .close-lightbox{
-
         top:-10px;
         right:-5px;
-
     }
 
 }
@@ -2062,9 +1807,7 @@ header p{
 
 </head>
 
-
 <body>
-
 
 <!-- =========================================================
      BACKGROUND
@@ -2072,41 +1815,25 @@ header p{
 
 <div class="background-decoration">
 
-    <div class="cloud cloud-1"></div>
+```
+<div class="cloud cloud-1"></div>
 
-    <div class="cloud cloud-2"></div>
+<div class="cloud cloud-2"></div>
 
+<div class="float-item heart f1">♡</div>
 
-    <div class="float-item heart f1">
-        ♡
-    </div>
+<div class="float-item star f2">✦</div>
 
+<div class="float-item blue-star f3">✧</div>
 
-    <div class="float-item star f2">
-        ✦
-    </div>
+<div class="float-item heart f4">♥</div>
 
-
-    <div class="float-item blue-star f3">
-        ✧
-    </div>
-
-
-    <div class="float-item heart f4">
-        ♥
-    </div>
-
-
-    <div class="float-item star f5">
-        ★
-    </div>
+<div class="float-item star f5">★</div>
+```
 
 </div>
 
-
-
 <div class="container">
-
 
 <!-- =========================================================
      NAVIGATION
@@ -2114,42 +1841,25 @@ header p{
 
 <nav class="navbar">
 
-    <div class="nav">
+```
+<div class="nav">
 
-        <a href="#home">
-            🏠 หน้าแรก
-        </a>
+    <a href="#home">🏠 หน้าแรก</a>
 
+    <a href="#preface">📖 คำนำ</a>
 
-        <a href="#preface">
-            📖 คำนำ
-        </a>
+    <a href="#personal">👤 ประวัติ</a>
 
+    <a href="#interest">💕 ความสนใจ</a>
 
-        <a href="#personal">
-            👤 ประวัติ
-        </a>
+    <a href="#certificate">🏆 เกียรติบัตร</a>
 
+    <a href="#contact">📞 ติดต่อ</a>
 
-        <a href="#interest">
-            💕 ความสนใจ
-        </a>
-
-
-        <a href="#certificate">
-            🏆 เกียรติบัตร
-        </a>
-
-
-        <a href="#contact">
-            📞 ติดต่อ
-        </a>
-
-    </div>
+</div>
+```
 
 </nav>
-
-
 
 <!-- =========================================================
      HEADER
@@ -2157,29 +1867,21 @@ header p{
 
 <header id="home">
 
-    <div class="top-badge">
+```
+<div class="top-badge">
+    🎀 Welcome to My Portfolio 🎀
+</div>
 
-        🎀 Welcome to My Portfolio 🎀
+<h1>
+    Portfolio
+</h1>
 
-    </div>
-
-
-    <h1>
-
-        Portfolio
-
-    </h1>
-
-
-    <p>
-
-        พื้นที่แห่งความทรงจำ ผลงาน ความสามารถ และความฝันของฉัน ✨
-
-    </p>
+<p>
+    พื้นที่แห่งความทรงจำ ผลงาน ความสามารถ และความฝันของฉัน ✨
+</p>
+```
 
 </header>
-
-
 
 <!-- =========================================================
      PROFILE
@@ -2187,137 +1889,761 @@ header p{
 
 <div class="profile" id="profile">
 
+```
+<div class="character-area">
 
-    <!-- IMAGE -->
+    <div class="character-glow"></div>
 
-    <div class="character-area">
+    <div class="image-decoration one">✦</div>
 
+    <div class="image-decoration two">♡</div>
 
-        <div class="character-glow"></div>
+    <div class="image-decoration three">✧</div>
 
+    <div class="character-frame">
 
-        <div class="image-decoration one">
-            ✦
-        </div>
-
-
-        <div class="image-decoration two">
-            ♡
-        </div>
-
-
-        <div class="image-decoration three">
-            ✧
-        </div>
-
-
-        <div class="character-frame">
-
-
-            <img
-
-                src="Screenshot 2026-06-16 113325.png"
-
-                class="character"
-
-                alt="รูปภาพประจำ Portfolio"
-
-                onerror="
-                    this.src='https://placehold.co/500x600/ffdff0/9a6cae?text=Portfolio';
-                "
-
-            >
-
-
-        </div>
-
-
-        <div class="mini-bow">
-
-            🎀
-
-        </div>
-
+        <img
+            src="Screenshot 2026-06-16 113325.png"
+            class="character"
+            alt="รูปภาพประจำ Portfolio"
+            onerror="
+                this.src='https://placehold.co/500x600/ffdff0/9a6cae?text=Portfolio';
+            "
+        >
 
     </div>
 
+    <div class="mini-bow">
+        🎀
+    </div>
+
+</div>
 
 
-    <!-- PROFILE INFORMATION -->
+<div class="profile-content">
 
-    <div class="profile-content">
+    <div class="profile-label">
+        ✨ Profile
+    </div>
 
+    <h2>
+        นางสาวธนัญชนก มะอินทร์
+    </h2>
 
-        <div class="profile-label">
+    <div class="info">
 
-            ✨ Profile
+        <div>
+            <strong>🎓 ระดับชั้น:</strong>
+            มัธยมศึกษาปีที่ 6
+        </div>
+
+        <div>
+            <strong>🏫 โรงเรียน:</strong>
+            บ้านบึง"อุตสาหกรรมนุเคราะห์
+        </div>
+
+        <div>
+            <strong>📧 Email:</strong>
+            s34874@banbung.ac.th
+        </div>
+
+        <div>
+            <strong>📱 โทร:</strong>
+            0952544994
+        </div>
+
+    </div>
+
+    <div class="description">
+
+        💗 ดิฉันมีความสนใจด้านวิทยาศาสตร์คำนวณ
+        เทคโนโลยี การเขียนโปรแกรม และการสร้างสรรค์
+        ผลงานดิจิทัล มุ่งมั่นพัฒนาตนเอง เรียนรู้สิ่งใหม่
+        และนำความรู้มาประยุกต์ใช้ในการสร้างผลงาน
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<!-- =========================================================
+     PREFACE
+========================================================= -->
+
+<section class="section" id="preface">
+
+```
+<div class="section-title">
+
+    <div class="icon">📖</div>
+
+    <h2>
+        คำนำ
+    </h2>
+
+</div>
+
+<div class="card introduction">
+
+    <div class="intro-icon">
+        🎀
+    </div>
+
+    <h3>
+        ยินดีต้อนรับสู่แฟ้มสะสมงานของฉัน
+    </h3>
+
+    <p>
+
+        แฟ้มสะสมงานฉบับนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว
+        ความสนใจ ผลงาน และเกียรติบัตรที่ได้รับจากการเข้าร่วม
+        กิจกรรมและประสบการณ์ต่าง ๆ ตลอดช่วงเวลาที่ผ่านมา
+        โดยมีจุดประสงค์เพื่อแสดงให้เห็นถึงความตั้งใจ
+        ความพยายาม และการพัฒนาตนเองในด้านต่าง ๆ
+
+        <br><br>
+
+        หวังว่าแฟ้มสะสมงานนี้จะช่วยให้ทุกคนได้รู้จักตัวตน
+        ความสนใจ และเป้าหมายของดิฉันมากยิ่งขึ้น
+
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     PERSONAL HISTORY
+========================================================= -->
+
+<section class="section" id="personal">
+
+```
+<div class="section-title">
+
+    <div class="icon">👤</div>
+
+    <h2>
+        ประวัติส่วนตัว
+    </h2>
+
+</div>
+
+<div class="card">
+
+    <div class="personal-grid">
+
+        <div class="personal-item">
+
+            <span>ชื่อ-สกุล</span>
+
+            <strong>
+                ธนัญชนก มะอินทร์
+            </strong>
 
         </div>
 
+        <div class="personal-item">
 
-        <h2>
+            <span>วันเกิด</span>
 
-            นางสาวธนัญชนก มะอินทร์
+            <strong>
+                26 มกราคม 2552
+            </strong>
 
-        </h2>
+        </div>
 
+        <div class="personal-item">
 
-        <div class="info">
+            <span>ระดับการศึกษา</span>
 
-
-            <div>
-
-                <strong>
-                    🎓 ระดับชั้น:
-                </strong>
-
+            <strong>
                 มัธยมศึกษาปีที่ 6
+            </strong>
 
-            </div>
+        </div>
 
+        <div class="personal-item">
 
-            <div>
+            <span>โรงเรียน</span>
 
-                <strong>
-                    🏫 โรงเรียน:
-                </strong>
-
+            <strong>
                 บ้านบึง"อุตสาหกรรมนุเคราะห์
+            </strong>
+
+        </div>
+
+        <div class="personal-item">
+
+            <span>งานอดิเรก</span>
+
+            <strong>
+                อ่านหนังสือ ฟังเพลง
+            </strong>
+
+        </div>
+
+        <div class="personal-item">
+
+            <span>สิ่งที่ชอบ</span>
+
+            <strong>
+                เทคโนโลยีและการเขียนโปรแกรม
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     INTEREST
+========================================================= -->
+
+<section class="section" id="interest">
+
+```
+<div class="section-title">
+
+    <div class="icon">💕</div>
+
+    <h2>
+        ความสนใจ
+    </h2>
+
+</div>
+
+<div class="interest-grid">
+
+    <div class="card interest-card">
+
+        <span class="interest-icon">
+            💻
+        </span>
+
+        <h3>
+            เทคโนโลยี
+        </h3>
+
+        <p>
+
+            สนใจเทคโนโลยีใหม่ ๆ
+            และการนำเทคโนโลยีมาใช้
+            ในการสร้างผลงาน
+
+        </p>
+
+    </div>
+
+    <div class="card interest-card">
+
+        <span class="interest-icon">
+            👩‍💻
+        </span>
+
+        <h3>
+            การเขียนโปรแกรม
+        </h3>
+
+        <p>
+
+            สนใจการสร้างเว็บไซต์
+            การออกแบบหน้าเว็บ
+            และการพัฒนาโปรแกรม
+
+        </p>
+
+    </div>
+
+    <div class="card interest-card">
+
+        <span class="interest-icon">
+            🎨
+        </span>
+
+        <h3>
+            การออกแบบ
+        </h3>
+
+        <p>
+
+            ชอบออกแบบผลงานดิจิทัล
+            และสร้างสรรค์ผลงาน
+            ให้มีความสวยงาม
+
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     CERTIFICATES
+========================================================= -->
+
+<section class="section" id="certificate">
+
+```
+<div class="section-title">
+
+    <div class="icon">
+        🏆
+    </div>
+
+    <h2>
+        เกียรติบัตร
+    </h2>
+
+</div>
+
+
+<div class="card">
+
+    <p style="margin-bottom:25px;text-align:center;">
+
+        ✨ รวมเกียรติบัตรและผลงานที่ได้รับจากการเข้าร่วมกิจกรรมต่าง ๆ ✨
+
+        <br>
+
+        <small style="color:#a182aa;">
+            คลิกที่รูปภาพเพื่อดูเกียรติบัตรขนาดใหญ่
+        </small>
+
+    </p>
+
+
+    <div class="certificate-gallery">
+
+
+        <!-- =================================================
+             CERTIFICATE 1
+        ================================================== -->
+
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9740298.jpg','เกียรติบัตรที่ 1')"
+            >
+
+                <img
+                    src="S__9740298.jpg"
+                    alt="เกียรติบัตรที่ 1"
+                    onerror="this.src='https://placehold.co/900x650/ffdff0/9a6cae?text=Certificate+1';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
 
             </div>
 
+            <div class="certificate-info">
 
-            <div>
+                <div class="certificate-number">
+                    01
+                </div>
 
-                <strong>
-                    📧 Email:
-                </strong>
+                <h3>
+                    เกียรติบัตรที่ 1
+                </h3>
 
-                s34874@banbung.ac.th
-
-            </div>
-
-
-            <div>
-
-                <strong>
-                    📱 โทร:
-                </strong>
-
-                0952544994
+                <p>
+                    เกียรติบัตรจากการเข้าร่วมกิจกรรมหรือโครงการ
+                    ที่ช่วยส่งเสริมความรู้และประสบการณ์
+                    พร้อมแสดงถึงความตั้งใจในการเรียนรู้
+                    และการพัฒนาตนเอง
+                </p>
 
             </div>
-
 
         </div>
 
 
-        <div class="description">
+        <!-- =================================================
+             CERTIFICATE 2
+        ================================================== -->
 
-            💗 ดิฉันมีความสนใจด้านวิทยาศาสตร์คำนวณ
-            เทคโนโลยี การเขียนโปรแกรม และการสร้างสรรค์
-            ผลงานดิจิทัล มุ่งมั่นพัฒนาตนเอง เรียนรู้สิ่งใหม่
-            และนำความรู้มาประยุกต์ใช้ในการสร้างผลงาน
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9740299.jpg','เกียรติบัตรที่ 2')"
+            >
+
+                <img
+                    src="S__9740299.jpg"
+                    alt="เกียรติบัตรที่ 2"
+                    onerror="this.src='https://placehold.co/900x650/eee1ff/8069a5?text=Certificate+2';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="certificate-info">
+
+                <div class="certificate-number">
+                    02
+                </div>
+
+                <h3>
+                    เกียรติบัตรที่ 2
+                </h3>
+
+                <p>
+                    เกียรติบัตรที่สะท้อนถึงการมีส่วนร่วม
+                    ในกิจกรรมที่ช่วยเสริมสร้างทักษะ
+                    ความรู้ ความรับผิดชอบ และประสบการณ์
+                    นอกเหนือจากการเรียนในห้องเรียน
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE 3
+        ================================================== -->
+
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9740300.jpg','เกียรติบัตรที่ 3')"
+            >
+
+                <img
+                    src="S__9740300.jpg"
+                    alt="เกียรติบัตรที่ 3"
+                    onerror="this.src='https://placehold.co/900x650/dff6ff/6c8da0?text=Certificate+3';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="certificate-info">
+
+                <div class="certificate-number">
+                    03
+                </div>
+
+                <h3>
+                    เกียรติบัตรที่ 3
+                </h3>
+
+                <p>
+                    เกียรติบัตรที่แสดงถึงความมุ่งมั่น
+                    ในการเข้าร่วมกิจกรรมและการเรียนรู้
+                    รวมถึงการนำประสบการณ์ที่ได้รับ
+                    มาพัฒนาความสามารถของตนเอง
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE 4
+        ================================================== -->
+
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9740301.jpg','เกียรติบัตรที่ 4')"
+            >
+
+                <img
+                    src="S__9740301.jpg"
+                    alt="เกียรติบัตรที่ 4"
+                    onerror="this.src='https://placehold.co/900x650/ffdff0/9a6cae?text=Certificate+4';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="certificate-info">
+
+                <div class="certificate-number">
+                    04
+                </div>
+
+                <h3>
+                    เกียรติบัตรที่ 4
+                </h3>
+
+                <p>
+                    เกียรติบัตรจากการเข้าร่วมกิจกรรม
+                    ที่ช่วยเพิ่มพูนประสบการณ์
+                    ส่งเสริมความสามารถ และฝึกทักษะ
+                    การทำงานร่วมกับผู้อื่น
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE 5
+        ================================================== -->
+
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9740302.jpg','เกียรติบัตรที่ 5')"
+            >
+
+                <img
+                    src="S__9740302.jpg"
+                    alt="เกียรติบัตรที่ 5"
+                    onerror="this.src='https://placehold.co/900x650/eee1ff/8069a5?text=Certificate+5';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="certificate-info">
+
+                <div class="certificate-number">
+                    05
+                </div>
+
+                <h3>
+                    เกียรติบัตรที่ 5
+                </h3>
+
+                <p>
+                    เกียรติบัตรที่แสดงถึงความตั้งใจ
+                    ความรับผิดชอบ และการมีส่วนร่วม
+                    ในกิจกรรมที่ช่วยพัฒนาความรู้
+                    และทักษะในด้านต่าง ๆ
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE 6
+        ================================================== -->
+
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9740303.jpg','เกียรติบัตรที่ 6')"
+            >
+
+                <img
+                    src="S__9740303.jpg"
+                    alt="เกียรติบัตรที่ 6"
+                    onerror="this.src='https://placehold.co/900x650/dff6ff/6c8da0?text=Certificate+6';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="certificate-info">
+
+                <div class="certificate-number">
+                    06
+                </div>
+
+                <h3>
+                    เกียรติบัตรที่ 6
+                </h3>
+
+                <p>
+                    เกียรติบัตรที่รวบรวมไว้เพื่อแสดง
+                    ประสบการณ์และความสามารถที่ได้รับ
+                    จากการเข้าร่วมกิจกรรมและการเรียนรู้
+                    อย่างต่อเนื่อง
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE 7
+        ================================================== -->
+
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9740305.jpg','เกียรติบัตรที่ 7')"
+            >
+
+                <img
+                    src="S__9740305.jpg"
+                    alt="เกียรติบัตรที่ 7"
+                    onerror="this.src='https://placehold.co/900x650/ffdff0/9a6cae?text=Certificate+7';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="certificate-info">
+
+                <div class="certificate-number">
+                    07
+                </div>
+
+                <h3>
+                    เกียรติบัตรที่ 7
+                </h3>
+
+                <p>
+                    เกียรติบัตรจากกิจกรรมที่เปิดโอกาส
+                    ให้ได้เรียนรู้สิ่งใหม่ ๆ พัฒนาทักษะ
+                    และเพิ่มประสบการณ์ที่สามารถนำไป
+                    ประยุกต์ใช้ในการเรียนและการดำเนินชีวิต
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE 8
+        ================================================== -->
+
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9748494.jpg','เกียรติบัตรที่ 8')"
+            >
+
+                <img
+                    src="S__9748494.jpg"
+                    alt="เกียรติบัตรที่ 8"
+                    onerror="this.src='https://placehold.co/900x650/eee1ff/8069a5?text=Certificate+8';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="certificate-info">
+
+                <div class="certificate-number">
+                    08
+                </div>
+
+                <h3>
+                    เกียรติบัตรที่ 8
+                </h3>
+
+                <p>
+                    เกียรติบัตรที่แสดงถึงความพยายาม
+                    ในการเรียนรู้และเข้าร่วมกิจกรรม
+                    รวมถึงการพัฒนาศักยภาพของตนเอง
+                    ผ่านประสบการณ์ที่หลากหลาย
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE 9
+        ================================================== -->
+
+        <div class="certificate-card">
+
+            <div
+                class="certificate-photo"
+                onclick="openLightbox('S__9748495.jpg','เกียรติบัตรที่ 9')"
+            >
+
+                <img
+                    src="S__9748495.jpg"
+                    alt="เกียรติบัตรที่ 9"
+                    onerror="this.src='https://placehold.co/900x650/dff6ff/6c8da0?text=Certificate+9';"
+                >
+
+                <div class="photo-overlay">
+                    <span>
+                        🔍 ดูเกียรติบัตร
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="certificate-info">
+
+                <div class="certificate-number">
+                    09
+                </div>
+
+                <h3>
+                    เกียรติบัตรที่ 9
+                </h3>
+
+                <p>
+                    เกียรติบัตรที่เป็นส่วนหนึ่งของประสบการณ์
+                    และผลงานที่สะท้อนถึงความตั้งใจ
+                    การพัฒนาตนเอง และการเรียนรู้
+                    จากกิจกรรมต่าง ๆ
+                </p>
+
+            </div>
 
         </div>
 
@@ -2325,742 +2651,9 @@ header p{
     </div>
 
 </div>
-
-
-
-<!-- =========================================================
-     PREFACE
-========================================================= -->
-
-<section
-    class="section"
-    id="preface"
->
-
-
-    <div class="section-title">
-
-        <div class="icon">
-            📖
-        </div>
-
-
-        <h2>
-            คำนำ
-        </h2>
-
-    </div>
-
-
-
-    <div class="card introduction">
-
-
-        <div class="intro-icon">
-            🎀
-        </div>
-
-
-        <h3>
-            ยินดีต้อนรับสู่แฟ้มสะสมงานของฉัน
-        </h3>
-
-
-        <p>
-
-            แฟ้มสะสมงานฉบับนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว
-            ความสนใจ ผลงาน และเกียรติบัตรที่ได้รับจากการเข้าร่วม
-            กิจกรรมและประสบการณ์ต่าง ๆ ตลอดช่วงเวลาที่ผ่านมา
-            โดยมีจุดประสงค์เพื่อแสดงให้เห็นถึงความตั้งใจ
-            ความพยายาม และการพัฒนาตนเองในด้านต่าง ๆ
-
-            <br><br>
-
-            หวังว่าแฟ้มสะสมงานนี้จะช่วยให้ทุกคนได้รู้จักตัวตน
-            ความสนใจ และเป้าหมายของดิฉันมากยิ่งขึ้น
-
-        </p>
-
-
-    </div>
+```
 
 </section>
-
-
-
-<!-- =========================================================
-     PERSONAL HISTORY
-========================================================= -->
-
-<section
-    class="section"
-    id="personal"
->
-
-
-    <div class="section-title">
-
-        <div class="icon">
-            👤
-        </div>
-
-
-        <h2>
-            ประวัติส่วนตัว
-        </h2>
-
-    </div>
-
-
-
-    <div class="card">
-
-
-        <div class="personal-grid">
-
-
-            <div class="personal-item">
-
-                <span>
-                    ชื่อ-สกุล
-                </span>
-
-                <strong>
-                    ธนัญชนก มะอินทร์
-                </strong>
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <span>
-                    วันเกิด
-                </span>
-
-                <strong>
-                    26 มกราคม 2552
-                </strong>
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <span>
-                    ระดับการศึกษา
-                </span>
-
-                <strong>
-                    มัธยมศึกษาปีที่ 6
-                </strong>
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <span>
-                    โรงเรียน
-                </span>
-
-                <strong>
-                    บ้านบึง"อุตสาหกรรมนุเคราะห์
-                </strong>
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <span>
-                    งานอดิเรก
-                </span>
-
-                <strong>
-                    อ่านหนังสือ ฟังเพลง
-                </strong>
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <span>
-                    สิ่งที่ชอบ
-                </span>
-
-                <strong>
-                    เทคโนโลยีและการเขียนโปรแกรม
-                </strong>
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     INTEREST
-========================================================= -->
-
-<section
-    class="section"
-    id="interest"
->
-
-
-    <div class="section-title">
-
-        <div class="icon">
-            💕
-        </div>
-
-
-        <h2>
-            ความสนใจ
-        </h2>
-
-    </div>
-
-
-
-    <div class="interest-grid">
-
-
-        <div class="card interest-card">
-
-            <span class="interest-icon">
-                💻
-            </span>
-
-            <h3>
-                เทคโนโลยี
-            </h3>
-
-            <p>
-
-                สนใจเทคโนโลยีใหม่ ๆ
-                และการนำเทคโนโลยีมาใช้
-                ในการสร้างผลงาน
-
-            </p>
-
-        </div>
-
-
-
-        <div class="card interest-card">
-
-            <span class="interest-icon">
-                👩‍💻
-            </span>
-
-            <h3>
-                การเขียนโปรแกรม
-            </h3>
-
-            <p>
-
-                สนใจการสร้างเว็บไซต์
-                การออกแบบหน้าเว็บ
-                และการพัฒนาโปรแกรม
-
-            </p>
-
-        </div>
-
-
-
-        <div class="card interest-card">
-
-            <span class="interest-icon">
-                🎨
-            </span>
-
-            <h3>
-                การออกแบบ
-            </h3>
-
-            <p>
-
-                ชอบออกแบบผลงานดิจิทัล
-                และสร้างสรรค์ผลงาน
-                ให้มีความสวยงาม
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CERTIFICATES
-========================================================= -->
-
-<section
-    class="section"
-    id="certificate"
->
-
-
-    <div class="section-title">
-
-        <div class="icon">
-            🏆
-        </div>
-
-
-        <h2>
-            เกียรติบัตร
-        </h2>
-
-    </div>
-
-
-
-    <div class="card">
-
-
-        <p style="margin-bottom:25px;text-align:center;">
-
-            ✨ รวมเกียรติบัตรและผลงานที่ได้รับจากการเข้าร่วมกิจกรรมต่าง ๆ ✨
-
-            <br>
-
-            <small style="color:#a182aa;">
-
-                คลิกที่รูปภาพเพื่อดูเกียรติบัตรขนาดใหญ่
-
-            </small>
-
-        </p>
-
-
-
-        <div class="certificate-gallery">
-
-
-            <!-- CERTIFICATE 1 -->
-
-            <div class="certificate-card">
-
-
-                <div
-
-                    class="certificate-photo"
-
-                    onclick="
-                        openLightbox(
-                            'certificate1.jpg',
-                            'เกียรติบัตรที่ 1'
-                        )
-                    "
-
-                >
-
-
-                    <img
-                        src="certificate1.jpg"
-                        alt="เกียรติบัตรที่ 1"
-                    >
-
-
-                    <div class="photo-overlay">
-
-                        <span>
-                            🔍 ดูเกียรติบัตร
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="certificate-info">
-
-
-                    <div class="certificate-number">
-                        01
-                    </div>
-
-
-                    <h3>
-                        เกียรติบัตรที่ 1
-                    </h3>
-
-
-                    <p>
-
-                        เกียรติบัตรจากการเข้าร่วมกิจกรรม
-                        หรือการพัฒนาทักษะด้านต่าง ๆ
-                        เพื่อแสดงถึงความตั้งใจและความสามารถ
-                        ในการเรียนรู้
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- CERTIFICATE 2 -->
-
-            <div class="certificate-card">
-
-
-                <div
-
-                    class="certificate-photo"
-
-                    onclick="
-                        openLightbox(
-                            'certificate2.jpg',
-                            'เกียรติบัตรที่ 2'
-                        )
-                    "
-
-                >
-
-
-                    <img
-                        src="certificate2.jpg"
-                        alt="เกียรติบัตรที่ 2"
-                    >
-
-
-                    <div class="photo-overlay">
-
-                        <span>
-                            🔍 ดูเกียรติบัตร
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="certificate-info">
-
-
-                    <div class="certificate-number">
-                        02
-                    </div>
-
-
-                    <h3>
-                        เกียรติบัตรที่ 2
-                    </h3>
-
-
-                    <p>
-
-                        เกียรติบัตรที่ได้รับจากการเข้าร่วม
-                        กิจกรรมหรือโครงการที่ช่วยส่งเสริม
-                        ความรู้ ความสามารถ และประสบการณ์
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- CERTIFICATE 3 -->
-
-            <div class="certificate-card">
-
-
-                <div
-
-                    class="certificate-photo"
-
-                    onclick="
-                        openLightbox(
-                            'certificate3.jpg',
-                            'เกียรติบัตรที่ 3'
-                        )
-                    "
-
-                >
-
-
-                    <img
-                        src="certificate3.jpg"
-                        alt="เกียรติบัตรที่ 3"
-                    >
-
-
-                    <div class="photo-overlay">
-
-                        <span>
-                            🔍 ดูเกียรติบัตร
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="certificate-info">
-
-
-                    <div class="certificate-number">
-                        03
-                    </div>
-
-
-                    <h3>
-                        เกียรติบัตรที่ 3
-                    </h3>
-
-
-                    <p>
-
-                        เกียรติบัตรที่สะท้อนถึงความมุ่งมั่น
-                        ในการเรียนรู้ การพัฒนาตนเอง
-                        และการเข้าร่วมกิจกรรมที่เป็นประโยชน์
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- CERTIFICATE 4 -->
-
-            <div class="certificate-card">
-
-
-                <div
-
-                    class="certificate-photo"
-
-                    onclick="
-                        openLightbox(
-                            'certificate4.jpg',
-                            'เกียรติบัตรที่ 4'
-                        )
-                    "
-
-                >
-
-
-                    <img
-                        src="certificate4.jpg"
-                        alt="เกียรติบัตรที่ 4"
-                    >
-
-
-                    <div class="photo-overlay">
-
-                        <span>
-                            🔍 ดูเกียรติบัตร
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="certificate-info">
-
-
-                    <div class="certificate-number">
-                        04
-                    </div>
-
-
-                    <h3>
-                        เกียรติบัตรที่ 4
-                    </h3>
-
-
-                    <p>
-
-                        เกียรติบัตรจากกิจกรรมที่ช่วยเสริมสร้าง
-                        ประสบการณ์และทักษะต่าง ๆ
-                        รวมถึงการทำงานร่วมกับผู้อื่น
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- CERTIFICATE 5 -->
-
-            <div class="certificate-card">
-
-
-                <div
-
-                    class="certificate-photo"
-
-                    onclick="
-                        openLightbox(
-                            'certificate5.jpg',
-                            'เกียรติบัตรที่ 5'
-                        )
-                    "
-
-                >
-
-
-                    <img
-                        src="certificate5.jpg"
-                        alt="เกียรติบัตรที่ 5"
-                    >
-
-
-                    <div class="photo-overlay">
-
-                        <span>
-                            🔍 ดูเกียรติบัตร
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="certificate-info">
-
-
-                    <div class="certificate-number">
-                        05
-                    </div>
-
-
-                    <h3>
-                        เกียรติบัตรที่ 5
-                    </h3>
-
-
-                    <p>
-
-                        เกียรติบัตรที่แสดงถึงความสามารถ
-                        ความรับผิดชอบ และความตั้งใจ
-                        ในการเข้าร่วมกิจกรรมและพัฒนาตนเอง
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- CERTIFICATE 6 -->
-
-            <div class="certificate-card">
-
-
-                <div
-
-                    class="certificate-photo"
-
-                    onclick="
-                        openLightbox(
-                            'certificate6.jpg',
-                            'เกียรติบัตรที่ 6'
-                        )
-                    "
-
-                >
-
-
-                    <img
-                        src="certificate6.jpg"
-                        alt="เกียรติบัตรที่ 6"
-                    >
-
-
-                    <div class="photo-overlay">
-
-                        <span>
-                            🔍 ดูเกียรติบัตร
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="certificate-info">
-
-
-                    <div class="certificate-number">
-                        06
-                    </div>
-
-
-                    <h3>
-                        เกียรติบัตรที่ 6
-                    </h3>
-
-
-                    <p>
-
-                        เกียรติบัตรที่รวบรวมไว้เพื่อแสดง
-                        ประสบการณ์ ความสามารถ และการพัฒนา
-                        ของดิฉันในด้านต่าง ๆ
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
 
 <!-- =========================================================
      LIGHTBOX
@@ -3072,155 +2665,117 @@ header p{
     onclick="closeLightbox(event)"
 >
 
+```
+<div class="lightbox-content">
 
-    <div class="lightbox-content">
+    <button
+        class="close-lightbox"
+        onclick="closeLightbox()"
+    >
+        ✕
+    </button>
 
+    <img
+        id="lightboxImage"
+        src=""
+        alt=""
+    >
 
-        <button
-
-            class="close-lightbox"
-
-            onclick="closeLightbox()"
-
-        >
-
-            ✕
-
-        </button>
-
-
-        <img
-
-            id="lightboxImage"
-
-            src=""
-
-            alt=""
-
-        >
-
-
-        <div
-
-            class="lightbox-title"
-
-            id="lightboxTitle"
-
-        ></div>
-
-
-    </div>
-
+    <div
+        class="lightbox-title"
+        id="lightboxTitle"
+    ></div>
 
 </div>
+```
 
-
+</div>
 
 <!-- =========================================================
      CONTACT
 ========================================================= -->
 
-<section
-    class="section"
-    id="contact"
->
+<section class="section" id="contact">
 
+```
+<div class="section-title">
 
-    <div class="section-title">
-
-        <div class="icon">
-            📞
-        </div>
-
-
-        <h2>
-            ติดต่อ
-        </h2>
-
+    <div class="icon">
+        📞
     </div>
 
+    <h2>
+        ติดต่อ
+    </h2>
 
+</div>
 
-    <div class="card contact-card">
+<div class="card contact-card">
 
+    <h3>
+        💌 Contact Me
+    </h3>
 
-        <h3>
-            💌 Contact Me
-        </h3>
+    <p>
+        สามารถติดต่อสอบถามหรือพูดคุยได้ตามช่องทางด้านล่าง
+    </p>
 
+    <div class="contact-grid">
 
-        <p>
+        <div class="contact-item">
 
-            สามารถติดต่อสอบถามหรือพูดคุยได้ตามช่องทางด้านล่าง
+            <span class="contact-icon">
+                📧
+            </span>
 
-        </p>
+            <span>
+                Email
+            </span>
 
-
-
-        <div class="contact-grid">
-
-
-            <div class="contact-item">
-
-                <span class="contact-icon">
-                    📧
-                </span>
-
-                <span>
-                    Email
-                </span>
-
-                <strong>
-                    s34874@banbung.ac.th
-                </strong>
-
-            </div>
-
-
-
-            <div class="contact-item">
-
-                <span class="contact-icon">
-                    📱
-                </span>
-
-                <span>
-                    โทรศัพท์
-                </span>
-
-                <strong>
-                    0952544994
-                </strong>
-
-            </div>
-
-
-
-            <div class="contact-item">
-
-                <span class="contact-icon">
-                    🏫
-                </span>
-
-                <span>
-                    โรงเรียน
-                </span>
-
-                <strong>
-                    บ้านบึง"อุตสาหกรรมนุเคราะห์
-                </strong>
-
-            </div>
-
+            <strong>
+                s34874@banbung.ac.th
+            </strong>
 
         </div>
 
+        <div class="contact-item">
+
+            <span class="contact-icon">
+                📱
+            </span>
+
+            <span>
+                โทรศัพท์
+            </span>
+
+            <strong>
+                0952544994
+            </strong>
+
+        </div>
+
+        <div class="contact-item">
+
+            <span class="contact-icon">
+                🏫
+            </span>
+
+            <span>
+                โรงเรียน
+            </span>
+
+            <strong>
+                บ้านบึง"อุตสาหกรรมนุเคราะห์
+            </strong>
+
+        </div>
 
     </div>
+
+</div>
+```
 
 </section>
-
-
 
 <!-- =========================================================
      FOOTER
@@ -3228,34 +2783,28 @@ header p{
 
 <div class="footer">
 
+```
+<a
+    href="#home"
+    class="btn"
+>
+    🏠 กลับด้านบน
+</a>
 
-    <a
-        href="#home"
-        class="btn"
-    >
+<div class="footer-text">
 
-        🏠 กลับด้านบน
+    Made with 💗 ✨ 🎀
 
-    </a>
+    <br>
 
+    Portfolio | ธนัญชนก มะอินทร์
 
-    <div class="footer-text">
-
-        Made with 💗 ✨ 🎀
-
-        <br>
-
-        Portfolio | ธนัญชนก มะอินทร์
-
-    </div>
-
+</div>
+```
 
 </div>
 
-
 </div>
-
-
 
 <!-- =========================================================
      JAVASCRIPT
@@ -3266,7 +2815,6 @@ header p{
 
 /* =========================================================
    NAVIGATION
-   คำนวณตำแหน่งตาม Navbar จริง
 ========================================================= */
 
 document.querySelectorAll('.nav a').forEach(function(link){
@@ -3276,31 +2824,22 @@ document.querySelectorAll('.nav a').forEach(function(link){
         const targetId =
             this.getAttribute('href');
 
-
         const target =
             document.querySelector(targetId);
 
-
         if(!target){
-
             return;
-
         }
 
-
         event.preventDefault();
-
 
         const navbar =
             document.querySelector('.navbar');
 
-
         const navbarHeight =
             navbar.offsetHeight;
 
-
         const extraSpace = 25;
-
 
         const targetPosition =
 
@@ -3318,7 +2857,6 @@ document.querySelectorAll('.nav a').forEach(function(link){
 
             extraSpace;
 
-
         window.scrollTo({
 
             top:Math.max(0,targetPosition),
@@ -3327,21 +2865,15 @@ document.querySelectorAll('.nav a').forEach(function(link){
 
         });
 
-
         history.pushState(
-
             null,
-
             '',
-
             targetId
-
         );
 
     });
 
 });
-
 
 
 /* =========================================================
@@ -3353,35 +2885,27 @@ function openLightbox(image,title){
     const lightbox =
         document.getElementById("lightbox");
 
-
     const imageElement =
         document.getElementById("lightboxImage");
-
 
     const titleElement =
         document.getElementById("lightboxTitle");
 
-
     imageElement.src =
         image;
-
 
     imageElement.alt =
         title;
 
-
     titleElement.textContent =
         title;
 
-
     lightbox.classList.add("active");
-
 
     document.body.style.overflow =
         "hidden";
 
 }
-
 
 
 /* =========================================================
@@ -3392,7 +2916,6 @@ function closeLightbox(event){
 
     const lightbox =
         document.getElementById("lightbox");
-
 
     if(
 
@@ -3406,9 +2929,7 @@ function closeLightbox(event){
 
     }
 
-
     lightbox.classList.remove("active");
-
 
     document.body.style.overflow =
         "";
@@ -3416,15 +2937,12 @@ function closeLightbox(event){
 }
 
 
-
 /* =========================================================
    ESC KEY
 ========================================================= */
 
 document.addEventListener(
-
     "keydown",
-
     function(event){
 
         if(event.key === "Escape"){
@@ -3434,13 +2952,9 @@ document.addEventListener(
         }
 
     }
-
 );
-
 
 </script>
 
-
 </body>
 </html>
-```
