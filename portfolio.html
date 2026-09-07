@@ -13,6 +13,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+
 <style>
 
 /* =========================================================
@@ -58,11 +59,7 @@ html{
 
     scroll-behavior:smooth;
 
-    /*
-       ระยะห่างด้านบนตอนกดเมนู
-       เพื่อไม่ให้ Navbar บังหัวข้อ
-    */
-    scroll-padding-top:120px;
+    scroll-padding-top:130px;
 
 }
 
@@ -420,7 +417,7 @@ header{
 
     margin-bottom:42px;
 
-    scroll-margin-top:120px;
+    scroll-margin-top:130px;
 
 }
 
@@ -584,17 +581,17 @@ header p{
 
     display:grid;
 
-    grid-template-columns:280px 1fr;
+    grid-template-columns:380px 1fr;
 
-    gap:40px;
+    gap:45px;
 
     align-items:center;
 
-    padding:42px;
+    padding:45px;
 
     margin-bottom:30px;
 
-    border-radius:35px;
+    border-radius:38px;
 
     background:var(--glass);
 
@@ -606,7 +603,7 @@ header p{
 
     -webkit-backdrop-filter:blur(18px);
 
-    scroll-margin-top:120px;
+    scroll-margin-top:130px;
 
     animation:fadeUp .9s .2s ease both;
 
@@ -619,8 +616,8 @@ header p{
 
     position:absolute;
 
-    width:330px;
-    height:330px;
+    width:360px;
+    height:360px;
 
     border-radius:50%;
 
@@ -632,7 +629,7 @@ header p{
             transparent 70%
         );
 
-    top:-180px;
+    top:-190px;
     right:-90px;
 
 }
@@ -644,8 +641,8 @@ header p{
 
     position:absolute;
 
-    width:250px;
-    height:250px;
+    width:280px;
+    height:280px;
 
     border-radius:50%;
 
@@ -657,14 +654,14 @@ header p{
             transparent 70%
         );
 
-    bottom:-140px;
-    left:-90px;
+    bottom:-150px;
+    left:-100px;
 
 }
 
 
 /* =========================================================
-   CHARACTER
+   IMAGE AREA
 ========================================================= */
 
 .character-area{
@@ -677,36 +674,96 @@ header p{
 
     align-items:center;
 
-    min-height:280px;
+    min-height:360px;
 
 }
 
 
-.character-circle{
+.character-glow{
 
     position:absolute;
 
-    width:250px;
-    height:250px;
+    width:330px;
+    height:330px;
 
     border-radius:50%;
 
     background:
 
-        linear-gradient(
-            135deg,
-            #ffd8eb,
-            #e5d9ff,
-            #d7f3ff
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 0%,
+            rgba(255,211,235,.8) 35%,
+            rgba(216,198,255,.65) 65%,
+            rgba(207,239,255,.2) 75%,
+            transparent 76%
         );
+
+    filter:blur(1px);
+
+    animation:
+        circleFloat 5s ease-in-out infinite;
+
+}
+
+
+.character-frame{
+
+    position:relative;
+
+    z-index:2;
+
+    width:300px;
+    height:330px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:18px;
+
+    border-radius:35px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.95),
+            rgba(255,236,246,.75),
+            rgba(237,228,255,.8)
+        );
+
+    border:5px solid rgba(255,255,255,.72);
 
     box-shadow:
 
-        inset 0 0 0 8px rgba(255,255,255,.45),
+        0 20px 50px rgba(160,110,190,.20),
 
-        0 15px 45px rgba(180,130,210,.2);
+        inset 0 0 30px rgba(255,255,255,.7);
 
-    animation:circleFloat 5s ease-in-out infinite;
+    animation:
+        characterFloat 4s ease-in-out infinite;
+
+    overflow:hidden;
+
+}
+
+
+.character-frame::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.8);
+
+    pointer-events:none;
 
 }
 
@@ -717,17 +774,17 @@ header p{
 
     z-index:2;
 
-    width:225px;
-    height:225px;
+    width:100%;
+    height:100%;
 
     object-fit:contain;
+
+    border-radius:22px;
 
     filter:
         drop-shadow(
             0 15px 15px rgba(120,80,150,.16)
         );
-
-    animation:characterFloat 4s ease-in-out infinite;
 
 }
 
@@ -736,14 +793,55 @@ header p{
 
     position:absolute;
 
-    top:5px;
-    right:20px;
+    top:10px;
+    right:12px;
 
-    z-index:4;
+    z-index:5;
 
     font-size:36px;
 
     animation:wiggle 3s ease-in-out infinite;
+
+}
+
+
+.image-decoration{
+
+    position:absolute;
+
+    z-index:4;
+
+    font-size:22px;
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+
+.image-decoration.one{
+
+    left:15px;
+    top:55px;
+
+}
+
+
+.image-decoration.two{
+
+    right:5px;
+    bottom:50px;
+
+    animation-delay:1s;
+
+}
+
+
+.image-decoration.three{
+
+    left:30px;
+    bottom:30px;
+
+    animation-delay:2s;
 
 }
 
@@ -774,7 +872,7 @@ header p{
     50%{
 
         transform:
-            translateY(-12px)
+            translateY(-10px)
             rotate(1deg);
 
     }
@@ -838,7 +936,7 @@ header p{
 
     color:#604d70;
 
-    margin-bottom:16px;
+    margin-bottom:20px;
 
 }
 
@@ -847,7 +945,7 @@ header p{
 
     display:grid;
 
-    gap:9px;
+    gap:11px;
 
     color:var(--text-soft);
 
@@ -865,11 +963,11 @@ header p{
 
 .description{
 
-    margin-top:22px;
+    margin-top:24px;
 
-    padding:18px 20px;
+    padding:20px 22px;
 
-    border-radius:20px;
+    border-radius:22px;
 
     background:
 
@@ -892,7 +990,7 @@ header p{
 
 .section{
 
-    scroll-margin-top:120px;
+    scroll-margin-top:130px;
 
 }
 
@@ -907,7 +1005,7 @@ header p{
 
     margin:55px 0 20px;
 
-    scroll-margin-top:120px;
+    scroll-margin-top:130px;
 
 }
 
@@ -1697,7 +1795,9 @@ header p{
 @media(max-width:800px){
 
     html{
-        scroll-padding-top:150px;
+
+        scroll-padding-top:155px;
+
     }
 
 
@@ -1724,6 +1824,21 @@ header p{
         text-align:center;
 
         padding:30px 22px;
+
+    }
+
+
+    .character-area{
+
+        min-height:340px;
+
+    }
+
+
+    .character-frame{
+
+        width:280px;
+        height:310px;
 
     }
 
@@ -1774,7 +1889,9 @@ header p{
 @media(max-width:480px){
 
     html{
-        scroll-padding-top:155px;
+
+        scroll-padding-top:160px;
+
     }
 
 
@@ -1835,18 +1952,36 @@ header p{
     }
 
 
-    .character-circle{
+    .character-area{
 
-        width:220px;
-        height:220px;
+        min-height:300px;
+
+    }
+
+
+    .character-glow{
+
+        width:280px;
+        height:280px;
+
+    }
+
+
+    .character-frame{
+
+        width:245px;
+        height:275px;
+
+        padding:14px;
+
+        border-radius:30px;
 
     }
 
 
     .character{
 
-        width:195px;
-        height:195px;
+        border-radius:18px;
 
     }
 
@@ -1941,21 +2076,26 @@ header p{
 
     <div class="cloud cloud-2"></div>
 
+
     <div class="float-item heart f1">
         ♡
     </div>
+
 
     <div class="float-item star f2">
         ✦
     </div>
 
+
     <div class="float-item blue-star f3">
         ✧
     </div>
 
+
     <div class="float-item heart f4">
         ♥
     </div>
+
 
     <div class="float-item star f5">
         ★
@@ -1980,21 +2120,26 @@ header p{
             🏠 หน้าแรก
         </a>
 
+
         <a href="#preface">
             📖 คำนำ
         </a>
 
-        <a href="#profile">
+
+        <a href="#personal">
             👤 ประวัติ
         </a>
+
 
         <a href="#interest">
             💕 ความสนใจ
         </a>
 
+
         <a href="#certificate">
             🏆 เกียรติบัตร
         </a>
+
 
         <a href="#contact">
             📞 ติดต่อ
@@ -2013,17 +2158,23 @@ header p{
 <header id="home">
 
     <div class="top-badge">
+
         🎀 Welcome to My Portfolio 🎀
+
     </div>
 
 
     <h1>
+
         Portfolio
+
     </h1>
 
 
     <p>
+
         พื้นที่แห่งความทรงจำ ผลงาน ความสามารถ และความฝันของฉัน ✨
+
     </p>
 
 </header>
@@ -2037,36 +2188,77 @@ header p{
 <div class="profile" id="profile">
 
 
+    <!-- IMAGE -->
+
     <div class="character-area">
 
-        <div class="character-circle"></div>
 
-        <div class="mini-bow">
-            🎀
+        <div class="character-glow"></div>
+
+
+        <div class="image-decoration one">
+            ✦
         </div>
 
 
-        <img
-            src="hello-kitty.png"
-            class="character"
-            alt="Sanrio Character"
-            onerror="this.src='https://placehold.co/300x300/ffdff0/9a6cae?text=Sanrio'"
-        >
+        <div class="image-decoration two">
+            ♡
+        </div>
+
+
+        <div class="image-decoration three">
+            ✧
+        </div>
+
+
+        <div class="character-frame">
+
+
+            <img
+
+                src="Screenshot 2026-06-16 113325.png"
+
+                class="character"
+
+                alt="รูปภาพประจำ Portfolio"
+
+                onerror="
+                    this.src='https://placehold.co/500x600/ffdff0/9a6cae?text=Portfolio';
+                "
+
+            >
+
+
+        </div>
+
+
+        <div class="mini-bow">
+
+            🎀
+
+        </div>
+
 
     </div>
 
 
 
+    <!-- PROFILE INFORMATION -->
+
     <div class="profile-content">
 
 
         <div class="profile-label">
-            ✨ About Me
+
+            ✨ Profile
+
         </div>
 
 
         <h2>
+
             นางสาวธนัญชนก มะอินทร์
+
         </h2>
 
 
@@ -2152,6 +2344,7 @@ header p{
             📖
         </div>
 
+
         <h2>
             คำนำ
         </h2>
@@ -2210,6 +2403,7 @@ header p{
         <div class="icon">
             👤
         </div>
+
 
         <h2>
             ประวัติส่วนตัว
@@ -2328,6 +2522,7 @@ header p{
             💕
         </div>
 
+
         <h2>
             ความสนใจ
         </h2>
@@ -2350,9 +2545,11 @@ header p{
             </h3>
 
             <p>
+
                 สนใจเทคโนโลยีใหม่ ๆ
                 และการนำเทคโนโลยีมาใช้
                 ในการสร้างผลงาน
+
             </p>
 
         </div>
@@ -2370,9 +2567,11 @@ header p{
             </h3>
 
             <p>
+
                 สนใจการสร้างเว็บไซต์
                 การออกแบบหน้าเว็บ
                 และการพัฒนาโปรแกรม
+
             </p>
 
         </div>
@@ -2390,9 +2589,11 @@ header p{
             </h3>
 
             <p>
+
                 ชอบออกแบบผลงานดิจิทัล
                 และสร้างสรรค์ผลงาน
                 ให้มีความสวยงาม
+
             </p>
 
         </div>
@@ -2420,6 +2621,7 @@ header p{
             🏆
         </div>
 
+
         <h2>
             เกียรติบัตร
         </h2>
@@ -2438,7 +2640,9 @@ header p{
             <br>
 
             <small style="color:#a182aa;">
+
                 คลิกที่รูปภาพเพื่อดูเกียรติบัตรขนาดใหญ่
+
             </small>
 
         </p>
@@ -2448,19 +2652,22 @@ header p{
         <div class="certificate-gallery">
 
 
-            <!-- =================================================
-                 CERTIFICATE 1
-            ================================================= -->
+            <!-- CERTIFICATE 1 -->
 
             <div class="certificate-card">
 
 
                 <div
+
                     class="certificate-photo"
-                    onclick="openLightbox(
-                        'certificate1.jpg',
-                        'เกียรติบัตรที่ 1'
-                    )"
+
+                    onclick="
+                        openLightbox(
+                            'certificate1.jpg',
+                            'เกียรติบัตรที่ 1'
+                        )
+                    "
+
                 >
 
 
@@ -2497,10 +2704,12 @@ header p{
 
 
                     <p>
+
                         เกียรติบัตรจากการเข้าร่วมกิจกรรม
                         หรือการพัฒนาทักษะด้านต่าง ๆ
                         เพื่อแสดงถึงความตั้งใจและความสามารถ
                         ในการเรียนรู้
+
                     </p>
 
 
@@ -2511,19 +2720,22 @@ header p{
 
 
 
-            <!-- =================================================
-                 CERTIFICATE 2
-            ================================================= -->
+            <!-- CERTIFICATE 2 -->
 
             <div class="certificate-card">
 
 
                 <div
+
                     class="certificate-photo"
-                    onclick="openLightbox(
-                        'certificate2.jpg',
-                        'เกียรติบัตรที่ 2'
-                    )"
+
+                    onclick="
+                        openLightbox(
+                            'certificate2.jpg',
+                            'เกียรติบัตรที่ 2'
+                        )
+                    "
+
                 >
 
 
@@ -2560,9 +2772,11 @@ header p{
 
 
                     <p>
+
                         เกียรติบัตรที่ได้รับจากการเข้าร่วม
                         กิจกรรมหรือโครงการที่ช่วยส่งเสริม
                         ความรู้ ความสามารถ และประสบการณ์
+
                     </p>
 
 
@@ -2573,19 +2787,22 @@ header p{
 
 
 
-            <!-- =================================================
-                 CERTIFICATE 3
-            ================================================= -->
+            <!-- CERTIFICATE 3 -->
 
             <div class="certificate-card">
 
 
                 <div
+
                     class="certificate-photo"
-                    onclick="openLightbox(
-                        'certificate3.jpg',
-                        'เกียรติบัตรที่ 3'
-                    )"
+
+                    onclick="
+                        openLightbox(
+                            'certificate3.jpg',
+                            'เกียรติบัตรที่ 3'
+                        )
+                    "
+
                 >
 
 
@@ -2622,9 +2839,11 @@ header p{
 
 
                     <p>
+
                         เกียรติบัตรที่สะท้อนถึงความมุ่งมั่น
                         ในการเรียนรู้ การพัฒนาตนเอง
                         และการเข้าร่วมกิจกรรมที่เป็นประโยชน์
+
                     </p>
 
 
@@ -2635,19 +2854,22 @@ header p{
 
 
 
-            <!-- =================================================
-                 CERTIFICATE 4
-            ================================================= -->
+            <!-- CERTIFICATE 4 -->
 
             <div class="certificate-card">
 
 
                 <div
+
                     class="certificate-photo"
-                    onclick="openLightbox(
-                        'certificate4.jpg',
-                        'เกียรติบัตรที่ 4'
-                    )"
+
+                    onclick="
+                        openLightbox(
+                            'certificate4.jpg',
+                            'เกียรติบัตรที่ 4'
+                        )
+                    "
+
                 >
 
 
@@ -2684,9 +2906,11 @@ header p{
 
 
                     <p>
+
                         เกียรติบัตรจากกิจกรรมที่ช่วยเสริมสร้าง
                         ประสบการณ์และทักษะต่าง ๆ
                         รวมถึงการทำงานร่วมกับผู้อื่น
+
                     </p>
 
 
@@ -2697,19 +2921,22 @@ header p{
 
 
 
-            <!-- =================================================
-                 CERTIFICATE 5
-            ================================================= -->
+            <!-- CERTIFICATE 5 -->
 
             <div class="certificate-card">
 
 
                 <div
+
                     class="certificate-photo"
-                    onclick="openLightbox(
-                        'certificate5.jpg',
-                        'เกียรติบัตรที่ 5'
-                    )"
+
+                    onclick="
+                        openLightbox(
+                            'certificate5.jpg',
+                            'เกียรติบัตรที่ 5'
+                        )
+                    "
+
                 >
 
 
@@ -2746,9 +2973,11 @@ header p{
 
 
                     <p>
+
                         เกียรติบัตรที่แสดงถึงความสามารถ
                         ความรับผิดชอบ และความตั้งใจ
                         ในการเข้าร่วมกิจกรรมและพัฒนาตนเอง
+
                     </p>
 
 
@@ -2759,19 +2988,22 @@ header p{
 
 
 
-            <!-- =================================================
-                 CERTIFICATE 6
-            ================================================= -->
+            <!-- CERTIFICATE 6 -->
 
             <div class="certificate-card">
 
 
                 <div
+
                     class="certificate-photo"
-                    onclick="openLightbox(
-                        'certificate6.jpg',
-                        'เกียรติบัตรที่ 6'
-                    )"
+
+                    onclick="
+                        openLightbox(
+                            'certificate6.jpg',
+                            'เกียรติบัตรที่ 6'
+                        )
+                    "
+
                 >
 
 
@@ -2808,9 +3040,11 @@ header p{
 
 
                     <p>
+
                         เกียรติบัตรที่รวบรวมไว้เพื่อแสดง
                         ประสบการณ์ ความสามารถ และการพัฒนา
                         ของดิฉันในด้านต่าง ๆ
+
                     </p>
 
 
@@ -2843,23 +3077,35 @@ header p{
 
 
         <button
+
             class="close-lightbox"
+
             onclick="closeLightbox()"
+
         >
+
             ✕
+
         </button>
 
 
         <img
+
             id="lightboxImage"
+
             src=""
+
             alt=""
+
         >
 
 
         <div
+
             class="lightbox-title"
+
             id="lightboxTitle"
+
         ></div>
 
 
@@ -2886,6 +3132,7 @@ header p{
             📞
         </div>
 
+
         <h2>
             ติดต่อ
         </h2>
@@ -2903,7 +3150,9 @@ header p{
 
 
         <p>
+
             สามารถติดต่อสอบถามหรือพูดคุยได้ตามช่องทางด้านล่าง
+
         </p>
 
 
@@ -2984,7 +3233,9 @@ header p{
         href="#home"
         class="btn"
     >
+
         🏠 กลับด้านบน
+
     </a>
 
 
@@ -3014,8 +3265,8 @@ header p{
 
 
 /* =========================================================
-   SMOOTH NAVIGATION
-   กดเมนูแล้วเลื่อนไปยังหัวข้อแบบพอดี
+   NAVIGATION
+   คำนวณตำแหน่งตาม Navbar จริง
 ========================================================= */
 
 document.querySelectorAll('.nav a').forEach(function(link){
@@ -3025,53 +3276,67 @@ document.querySelectorAll('.nav a').forEach(function(link){
         const targetId =
             this.getAttribute('href');
 
+
         const target =
             document.querySelector(targetId);
 
 
-        if(target){
+        if(!target){
 
-            event.preventDefault();
-
-
-            const navbar =
-                document.querySelector('.navbar');
-
-
-            const navbarHeight =
-                navbar.offsetHeight;
-
-
-            const targetPosition =
-                target.getBoundingClientRect().top
-                +
-                window.pageYOffset
-                -
-                navbarHeight
-                -
-                35;
-
-
-            window.scrollTo({
-
-                top:targetPosition,
-
-                behavior:'smooth'
-
-            });
-
-
-            /*
-               อัปเดต URL โดยไม่กระโดดตำแหน่ง
-            */
-
-            history.pushState(
-                null,
-                null,
-                targetId
-            );
+            return;
 
         }
+
+
+        event.preventDefault();
+
+
+        const navbar =
+            document.querySelector('.navbar');
+
+
+        const navbarHeight =
+            navbar.offsetHeight;
+
+
+        const extraSpace = 25;
+
+
+        const targetPosition =
+
+            target.getBoundingClientRect().top
+
+            +
+
+            window.pageYOffset
+
+            -
+
+            navbarHeight
+
+            -
+
+            extraSpace;
+
+
+        window.scrollTo({
+
+            top:Math.max(0,targetPosition),
+
+            behavior:'smooth'
+
+        });
+
+
+        history.pushState(
+
+            null,
+
+            '',
+
+            targetId
+
+        );
 
     });
 
@@ -3130,8 +3395,11 @@ function closeLightbox(event){
 
 
     if(
+
         event &&
+
         event.target.closest(".lightbox-content")
+
     ){
 
         return;
@@ -3154,7 +3422,9 @@ function closeLightbox(event){
 ========================================================= */
 
 document.addEventListener(
+
     "keydown",
+
     function(event){
 
         if(event.key === "Escape"){
@@ -3164,6 +3434,7 @@ document.addEventListener(
         }
 
     }
+
 );
 
 
@@ -3172,4 +3443,4 @@ document.addEventListener(
 
 </body>
 </html>
-
+```
