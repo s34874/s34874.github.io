@@ -1099,6 +1099,268 @@ header p{
 
 
 /* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+.education-card{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    align-items:center;
+
+    gap:28px;
+
+    padding:20px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.76);
+
+    border:1px solid rgba(255,255,255,.9);
+
+    box-shadow:var(--shadow-soft);
+
+    overflow:hidden;
+
+    transition:.4s ease;
+
+}
+
+
+.education-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,160,208,.18),
+            transparent 70%
+        );
+
+    right:-50px;
+
+    top:-70px;
+
+}
+
+
+.education-card:nth-child(2)::before{
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(175,145,238,.18),
+            transparent 70%
+        );
+
+}
+
+
+.education-card:nth-child(3)::before{
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(115,207,255,.18),
+            transparent 70%
+        );
+
+}
+
+
+.education-card:hover{
+
+    transform:translateY(-6px) scale(1.01);
+
+    box-shadow:
+        0 22px 50px rgba(160,110,190,.20);
+
+}
+
+
+.education-image{
+
+    position:relative;
+
+    z-index:2;
+
+    height:155px;
+
+    padding:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe1ef,
+            #eee2ff
+        );
+
+    border:4px solid rgba(255,255,255,.85);
+
+    overflow:hidden;
+
+    box-shadow:
+        0 12px 28px rgba(160,110,190,.15);
+
+}
+
+
+.education-card:nth-child(2)
+.education-image{
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee2ff,
+            #def5ff
+        );
+
+}
+
+
+.education-card:nth-child(3)
+.education-image{
+
+    background:
+        linear-gradient(
+            135deg,
+            #def5ff,
+            #ffe2f0
+        );
+
+}
+
+
+.education-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+    transition:.5s ease;
+
+}
+
+
+.education-card:hover
+.education-image img{
+
+    transform:scale(1.06);
+
+}
+
+
+.education-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.education-level{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:7px 15px;
+
+    margin-bottom:10px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe0ee,
+            #eee2ff
+        );
+
+    color:#986fa6;
+
+    font-size:13px;
+
+}
+
+
+.education-content h3{
+
+    font-family:"Itim",cursive;
+
+    font-size:31px;
+
+    color:#654f70;
+
+    margin-bottom:8px;
+
+}
+
+
+.education-content p{
+
+    color:var(--text-soft);
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+
+.education-icon{
+
+    position:absolute;
+
+    right:20px;
+
+    bottom:15px;
+
+    font-size:28px;
+
+    opacity:.65;
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
    INTEREST
 ========================================================= */
 
@@ -1702,6 +1964,19 @@ header p{
 
     }
 
+
+    .education-card{
+
+        grid-template-columns:180px 1fr;
+
+    }
+
+    .education-image{
+
+        height:140px;
+
+    }
+
 }
 
 
@@ -1735,6 +2010,38 @@ header p{
     .certificate-gallery{
 
         grid-template-columns:1fr;
+
+    }
+
+
+    .education-card{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        padding:18px;
+
+    }
+
+    .education-image{
+
+        width:100%;
+
+        height:220px;
+
+    }
+
+    .education-level{
+
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+
+    .education-icon{
+
+        display:none;
 
     }
 
@@ -1812,6 +2119,20 @@ header p{
     .card{
         padding:23px;
     }
+
+
+    .education-image{
+
+        height:190px;
+
+    }
+
+    .education-content h3{
+
+        font-size:27px;
+
+    }
+
 
     .certificate-photo{
         height:300px;
@@ -1911,6 +2232,10 @@ header p{
             👤 ประวัติ
         </a>
 
+        <a href="#education">
+            🎓 การศึกษา
+        </a>
+
         <a href="#interest">
             💕 ความสนใจ
         </a>
@@ -1975,8 +2300,6 @@ header p{
 
         <div class="character-frame">
 
-            <!-- รูปโปรไฟล์ใหม่ -->
-
             <img
                 src="87683A30-1C97-4B59-8363-70B8CC04A306.jpg"
                 class="character"
@@ -2034,12 +2357,13 @@ header p{
 
         <div class="description">
 
-            💗 ดิฉันมีความสนใจด้านวิทยาศาสตร์คำนวณ
-            เทคโนโลยี การเขียนโปรแกรม และการสร้างสรรค์
-            ผลงานดิจิทัล มุ่งมั่นพัฒนาตนเอง เรียนรู้สิ่งใหม่
-            และนำความรู้มาประยุกต์ใช้ในการสร้างผลงาน
-            พร้อมเปิดรับประสบการณ์ใหม่ ๆ เพื่อพัฒนาตนเอง
-            ให้มีความรู้และทักษะที่หลากหลายมากยิ่งขึ้น
+            💗 ดิฉันมีความสนใจด้านจิตวิทยา
+            การศึกษาและครุศาสตร์ รวมถึงรัฐศาสตร์
+            มุ่งมั่นเรียนรู้สิ่งใหม่ ๆ พัฒนาตนเอง
+            และนำความรู้ไปประยุกต์ใช้ในการเรียน
+            พร้อมเปิดรับประสบการณ์ใหม่ ๆ
+            เพื่อพัฒนาตนเองให้มีความรู้และทักษะ
+            ที่หลากหลายมากยิ่งขึ้น
 
         </div>
 
@@ -2080,16 +2404,16 @@ header p{
         <p>
 
             แฟ้มสะสมงานฉบับนี้จัดทำขึ้นเพื่อรวบรวม
-            ประวัติส่วนตัว ความสนใจ ผลงาน และเกียรติบัตร
-            ที่ได้รับจากการเข้าร่วมกิจกรรมและประสบการณ์ต่าง ๆ
-            ตลอดช่วงเวลาที่ผ่านมา
+            ประวัติส่วนตัว ประวัติการศึกษา ความสนใจ
+            และเกียรติบัตรที่ได้รับจากการเข้าร่วมกิจกรรม
+            และประสบการณ์ต่าง ๆ ตลอดช่วงเวลาที่ผ่านมา
 
             <br><br>
 
             โดยมีจุดประสงค์เพื่อแสดงให้เห็นถึงความตั้งใจ
             ความพยายาม ความรับผิดชอบ และการพัฒนาตนเอง
-            ในด้านต่าง ๆ รวมถึงความสนใจทางด้านเทคโนโลยี
-            การเขียนโปรแกรม และการออกแบบผลงานดิจิทัล
+            ในด้านต่าง ๆ รวมถึงความสนใจด้านจิตวิทยา
+            การศึกษาและครุศาสตร์ ตลอดจนรัฐศาสตร์
 
             <br><br>
 
@@ -2200,13 +2524,174 @@ header p{
                 </span>
 
                 <strong>
-                    เทคโนโลยีและการเขียนโปรแกรม
+                    การเรียนรู้และการพัฒนาตนเอง
                 </strong>
 
             </div>
 
 
         </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EDUCATION HISTORY
+========================================================= -->
+
+<section class="section" id="education">
+
+    <div class="section-title">
+
+        <div class="icon">
+            🎓
+        </div>
+
+        <h2>
+            ประวัติการศึกษา
+        </h2>
+
+    </div>
+
+
+    <div class="education-wrapper">
+
+
+        <!-- =================================================
+             PRIMARY
+        ================================================== -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img
+                    src="S__9756685.jpg"
+                    alt="โรงเรียนกุญแจคริสเตียนวิทยา"
+                    onerror="
+                        this.src='https://placehold.co/900x600/ffdff0/9a6cae?text=Primary+School';
+                    "
+                >
+
+            </div>
+
+
+            <div class="education-content">
+
+                <div class="education-level">
+                    🌸 ระดับประถมศึกษา
+                </div>
+
+                <h3>
+                    โรงเรียนกุญแจคริสเตียนวิทยา
+                </h3>
+
+                <p>
+                    ระดับการศึกษาขั้นพื้นฐานในช่วงประถมศึกษา
+                    เป็นช่วงที่ได้เรียนรู้พื้นฐานในด้านต่าง ๆ
+                    และพัฒนาทักษะที่สำคัญสำหรับการศึกษาต่อ
+                </p>
+
+                <div class="education-icon">
+                    🎀
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LOWER SECONDARY
+        ================================================== -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img
+                    src="S__9764868.jpg"
+                    alt="โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์ มัธยมศึกษาตอนต้น"
+                    onerror="
+                        this.src='https://placehold.co/900x600/eee1ff/8069a5?text=Lower+Secondary';
+                    "
+                >
+
+            </div>
+
+
+            <div class="education-content">
+
+                <div class="education-level">
+                    💜 ระดับมัธยมศึกษาตอนต้น
+                </div>
+
+                <h3>
+                    โรงเรียนบ้านบึง“อุตสาหกรรมนุเคราะห์”
+                </h3>
+
+                <p>
+                    ศึกษาต่อในระดับมัธยมศึกษาตอนต้น
+                    ได้พัฒนาความรู้ในรายวิชาต่าง ๆ
+                    รวมถึงทักษะการเรียนรู้ การทำงาน
+                    และการเตรียมความพร้อมสำหรับการศึกษาต่อ
+                </p>
+
+                <div class="education-icon">
+                    ✦
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             UPPER SECONDARY
+        ================================================== -->
+
+        <div class="education-card">
+
+            <div class="education-image">
+
+                <img
+                    src="S__9764868.jpg"
+                    alt="โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์ มัธยมศึกษาตอนปลาย"
+                    onerror="
+                        this.src='https://placehold.co/900x600/dff6ff/6c8da0?text=Upper+Secondary';
+                    "
+                >
+
+            </div>
+
+
+            <div class="education-content">
+
+                <div class="education-level">
+                    💙 ระดับมัธยมศึกษาตอนปลาย
+                </div>
+
+                <h3>
+                    โรงเรียนบ้านบึง“อุตสาหกรรมนุเคราะห์”
+                </h3>
+
+                <p>
+                    ศึกษาในระดับมัธยมศึกษาตอนปลาย
+                    มุ่งพัฒนาความรู้ ความสามารถ และทักษะ
+                    เพื่อเตรียมความพร้อมสำหรับการศึกษาต่อ
+                    และการวางแผนเป้าหมายในอนาคต
+                </p>
+
+                <div class="education-icon">
+                    🌟
+                </div>
+
+            </div>
+
+        </div>
+
 
     </div>
 
@@ -2235,66 +2720,77 @@ header p{
     <div class="interest-grid">
 
 
+        <!-- PSYCHOLOGY -->
+
         <div class="card interest-card">
 
             <span class="interest-icon">
-                💻
+                🧠
             </span>
 
             <h3>
-                เทคโนโลยี
+                จิตวิทยา
             </h3>
 
             <p>
 
-                สนใจเทคโนโลยีใหม่ ๆ
-                และการนำเทคโนโลยีมาประยุกต์ใช้
-                เพื่อสร้างผลงานที่เป็นประโยชน์
-                และช่วยแก้ไขปัญหาต่าง ๆ
+                สนใจศึกษาความคิด อารมณ์
+                และพฤติกรรมของมนุษย์
+                เพื่อทำความเข้าใจความรู้สึก
+                และมุมมองของผู้คน
+                รวมถึงสามารถนำความรู้
+                ไปใช้ในการช่วยเหลือผู้อื่น
 
             </p>
 
         </div>
 
 
+        <!-- EDUCATION -->
+
         <div class="card interest-card">
 
             <span class="interest-icon">
-                👩‍💻
+                📚
             </span>
 
             <h3>
-                การเขียนโปรแกรม
+                การศึกษา / ครุศาสตร์
             </h3>
 
             <p>
 
-                สนใจการสร้างเว็บไซต์
-                การออกแบบหน้าเว็บ
-                การเรียนรู้ภาษาโปรแกรม
-                และการพัฒนาโปรเจกต์ดิจิทัล
+                สนใจการเรียนรู้เกี่ยวกับการสอน
+                และการพัฒนาผู้เรียน
+                เพื่อสามารถถ่ายทอดความรู้
+                และสร้างกระบวนการเรียนรู้
+                ให้ผู้อื่นได้อย่างมีประสิทธิภาพ
 
             </p>
 
         </div>
 
 
+        <!-- POLITICAL SCIENCE -->
+
         <div class="card interest-card">
 
             <span class="interest-icon">
-                🎨
+                🏛️
             </span>
 
             <h3>
-                การออกแบบ
+                รัฐศาสตร์
             </h3>
 
             <p>
 
-                ชอบออกแบบผลงานดิจิทัล
-                จัดองค์ประกอบ สี และรูปแบบ
-                ให้ผลงานมีความสวยงาม
-                และใช้งานได้ง่าย
+                สนใจศึกษาด้านการเมือง
+                การปกครอง และการบริหารประเทศ
+                รวมถึงบทบาทของประชาชน
+                เพื่อทำความเข้าใจการทำงาน
+                ของรัฐบาลและการพัฒนาสังคม
+                ให้ดีขึ้น
 
             </p>
 
@@ -2415,9 +2911,7 @@ header p{
 </div>
 
 
-<!-- =========================================================
-     CERTIFICATE 2
-========================================================= -->
+<!-- CERTIFICATE 2 -->
 
 <div class="certificate-card">
 
@@ -2438,11 +2932,7 @@ header p{
         >
 
         <div class="photo-overlay">
-
-            <span>
-                🔍 ดูเกียรติบัตร
-            </span>
-
+            <span>🔍 ดูเกียรติบัตร</span>
         </div>
 
     </div>
@@ -2482,9 +2972,7 @@ header p{
 </div>
 
 
-<!-- =========================================================
-     CERTIFICATE 3
-========================================================= -->
+<!-- CERTIFICATE 3 -->
 
 <div class="certificate-card">
 
@@ -2505,11 +2993,7 @@ header p{
         >
 
         <div class="photo-overlay">
-
-            <span>
-                🔍 ดูเกียรติบัตร
-            </span>
-
+            <span>🔍 ดูเกียรติบัตร</span>
         </div>
 
     </div>
@@ -2549,9 +3033,7 @@ header p{
 </div>
 
 
-<!-- =========================================================
-     CERTIFICATE 4
-========================================================= -->
+<!-- CERTIFICATE 4 -->
 
 <div class="certificate-card">
 
@@ -2572,11 +3054,7 @@ header p{
         >
 
         <div class="photo-overlay">
-
-            <span>
-                🔍 ดูเกียรติบัตร
-            </span>
-
+            <span>🔍 ดูเกียรติบัตร</span>
         </div>
 
     </div>
@@ -2616,9 +3094,7 @@ header p{
 </div>
 
 
-<!-- =========================================================
-     CERTIFICATE 5
-========================================================= -->
+<!-- CERTIFICATE 5 -->
 
 <div class="certificate-card">
 
@@ -2639,11 +3115,7 @@ header p{
         >
 
         <div class="photo-overlay">
-
-            <span>
-                🔍 ดูเกียรติบัตร
-            </span>
-
+            <span>🔍 ดูเกียรติบัตร</span>
         </div>
 
     </div>
@@ -2683,9 +3155,7 @@ header p{
 </div>
 
 
-<!-- =========================================================
-     CERTIFICATE 6
-========================================================= -->
+<!-- CERTIFICATE 6 -->
 
 <div class="certificate-card">
 
@@ -2706,11 +3176,7 @@ header p{
         >
 
         <div class="photo-overlay">
-
-            <span>
-                🔍 ดูเกียรติบัตร
-            </span>
-
+            <span>🔍 ดูเกียรติบัตร</span>
         </div>
 
     </div>
@@ -2749,9 +3215,7 @@ header p{
 </div>
 
 
-<!-- =========================================================
-     CERTIFICATE 7
-========================================================= -->
+<!-- CERTIFICATE 7 -->
 
 <div class="certificate-card">
 
@@ -2772,11 +3236,7 @@ header p{
         >
 
         <div class="photo-overlay">
-
-            <span>
-                🔍 ดูเกียรติบัตร
-            </span>
-
+            <span>🔍 ดูเกียรติบัตร</span>
         </div>
 
     </div>
@@ -2816,9 +3276,7 @@ header p{
 </div>
 
 
-<!-- =========================================================
-     CERTIFICATE 8
-========================================================= -->
+<!-- CERTIFICATE 8 -->
 
 <div class="certificate-card">
 
@@ -2839,11 +3297,7 @@ header p{
         >
 
         <div class="photo-overlay">
-
-            <span>
-                🔍 ดูเกียรติบัตร
-            </span>
-
+            <span>🔍 ดูเกียรติบัตร</span>
         </div>
 
     </div>
@@ -2884,9 +3338,7 @@ header p{
 </div>
 
 
-<!-- =========================================================
-     CERTIFICATE 9
-========================================================= -->
+<!-- CERTIFICATE 9 -->
 
 <div class="certificate-card">
 
@@ -2907,11 +3359,7 @@ header p{
         >
 
         <div class="photo-overlay">
-
-            <span>
-                🔍 ดูเกียรติบัตร
-            </span>
-
+            <span>🔍 ดูเกียรติบัตร</span>
         </div>
 
     </div>
