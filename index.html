@@ -7,96 +7,860 @@
 
     <title>Portfolio | ธนัญชนก มะอินทร์</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Kanit", sans-serif;
+            min-height: 100vh;
+            color: #554562;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,.8), transparent 25%),
+                radial-gradient(circle at 90% 10%, rgba(255,255,255,.7), transparent 25%),
+                linear-gradient(
+                    135deg,
+                    #ffd8ec,
+                    #e8d9ff,
+                    #ccecff,
+                    #ffe0f1
+                );
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(10px);
+            opacity: .55;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .blob.one {
+            width: 300px;
+            height: 300px;
+            background: #ffb8dc;
+            top: -80px;
+            left: -80px;
+        }
+
+        .blob.two {
+            width: 350px;
+            height: 350px;
+            background: #cbb8ff;
+            right: -100px;
+            top: 25%;
+            animation-delay: 2s;
+        }
+
+        .blob.three {
+            width: 280px;
+            height: 280px;
+            background: #aee6ff;
+            bottom: -80px;
+            left: 35%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%,100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-25px) translateX(15px);
+            }
+        }
+
+        .star {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            opacity: .8;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        .star:nth-child(1) {
+            top: 15%;
+            left: 12%;
+        }
+
+        .star:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: .5s;
+        }
+
+        .star:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(4) {
+            bottom: 12%;
+            right: 25%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: .3;
+                transform: scale(.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: calc(100% - 40px);
+            max-width: 1100px;
+
+            padding: 12px 18px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+
+            background: rgba(255,255,255,.72);
+            backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(255,255,255,.9);
+            border-radius: 30px;
+
+            box-shadow: 0 15px 40px rgba(130,100,170,.15);
+
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #665570;
+
+            padding: 9px 15px;
+            border-radius: 20px;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: .3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: linear-gradient(
+                135deg,
+                #ff91c6,
+                #ad91ee
+            );
+
+            color: white;
+
+            box-shadow:
+                0 7px 18px rgba(180,120,210,.25);
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 120px 25px 70px;
+
+            animation: pageEnter .7s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes pageEnter {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* =========================
+           HOME
+        ========================= */
+
+        .hero {
+            min-height: calc(100vh - 160px);
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-text h1 {
+            font-family: "Itim", cursive;
+            font-size: clamp(45px, 7vw, 82px);
+            line-height: 1;
+            color: #76537e;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #ee77ad;
+        }
+
+        .hero-text .subtitle {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #796581;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            line-height: 1.9;
+            max-width: 560px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+
+            text-decoration: none;
+            color: white;
+
+            padding: 13px 25px;
+            border-radius: 30px;
+
+            background: linear-gradient(
+                135deg,
+                #ff83ba,
+                #a98aeb
+            );
+
+            box-shadow: 0 12px 25px rgba(170,120,210,.25);
+
+            transition: .3s;
+        }
+
+        .button:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* =========================
+           PROFILE CARD
+        ========================= */
+
+        .profile-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            position: relative;
+
+            width: min(390px, 100%);
+            padding: 18px;
+
+            border-radius: 35px;
+
+            background: rgba(255,255,255,.6);
+            backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255,255,255,.85);
+
+            box-shadow:
+                0 25px 60px rgba(120,90,160,.2);
+
+            transform: rotate(2deg);
+            transition: .4s;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+        }
+
+        .profile-card img {
+            width: 100%;
+            height: 470px;
+
+            object-fit: cover;
+
+            border-radius: 27px;
+            display: block;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 35px;
+            animation: heartFloat 3s ease-in-out infinite;
+        }
+
+        .heart.one {
+            top: -20px;
+            right: 15px;
+        }
+
+        .heart.two {
+            bottom: -15px;
+            left: -15px;
+            animation-delay: 1s;
+        }
+
+        @keyframes heartFloat {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title .emoji {
+            font-size: 40px;
+        }
+
+        .section-title h2 {
+            font-family: "Itim", cursive;
+            font-size: 48px;
+            color: #76537e;
+        }
+
+        .section-title p {
+            margin-top: 5px;
+            color: #8b778f;
+        }
+
+        /* =========================
+           GLASS CARD
+        ========================= */
+
+        .glass {
+            background: rgba(255,255,255,.65);
+            backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255,255,255,.85);
+
+            border-radius: 28px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 18px 45px rgba(120,90,160,.13);
+
+            transition: .35s;
+        }
+
+        .glass:hover {
+            transform: translateY(-6px);
+            box-shadow:
+                0 25px 55px rgba(120,90,160,.2);
+        }
+
+        /* =========================
+           PREFACE
+        ========================= */
+
+        .preface-card {
+            max-width: 850px;
+            margin: auto;
+
+            text-align: center;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .preface-card .big {
+            font-family: "Itim", cursive;
+            font-size: 38px;
+            color: #ee77ad;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           PERSONAL
+        ========================= */
+
+        .personal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            padding: 18px;
+            margin-bottom: 14px;
+
+            background: rgba(255,255,255,.45);
+            border-radius: 18px;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+            border-radius: 50%;
+
+            font-size: 22px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #76537e;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .education-card {
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .education-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .education-content {
+            padding: 24px;
+        }
+
+        .education-content h3 {
+            color: #76537e;
+            margin-bottom: 10px;
+        }
+
+        .education-content p {
+            line-height: 1.7;
+        }
+
+        .year {
+            display: inline-block;
+            margin-top: 15px;
+
+            padding: 6px 13px;
+            border-radius: 20px;
+
+            background: #f7d5e8;
+            color: #8a5c78;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           GOAL
+        ========================= */
+
+        .goal-card {
+            max-width: 950px;
+            margin: auto;
+
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        .goal-card h3 {
+            font-family: "Itim", cursive;
+            font-size: 34px;
+            color: #ee77ad;
+            margin-bottom: 20px;
+        }
+
+        .future-box {
+            margin-top: 30px;
+            padding: 25px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,170,210,.45),
+                    rgba(190,170,255,.45)
+                );
+
+            border: 1px solid rgba(255,255,255,.8);
+        }
+
+        /* =========================
+           CERTIFICATES
+        ========================= */
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 22px;
+        }
+
+        .certificate {
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        .certificate img {
+            width: 100%;
+            height: 300px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+            display: block;
+
+            transition: .4s;
+        }
+
+        .certificate:hover img {
+            transform: scale(1.04);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-grid {
+            max-width: 850px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            text-align: center;
+        }
+
+        .contact-card .icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card h3 {
+            color: #76537e;
+            margin-bottom: 8px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+
+            color: #8c7890;
+            font-size: 14px;
+        }
+
+        /* =========================
+           LIGHTBOX
+        ========================= */
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background: rgba(50,35,65,.8);
+            backdrop-filter: blur(12px);
+
+            z-index: 2000;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 70px rgba(0,0,0,.35);
+        }
+
+        .close {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+
+            color: white;
+            font-size: 35px;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 950px) {
+
+            nav {
+                overflow-x: auto;
+                justify-content: flex-start;
+                white-space: nowrap;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: auto;
+            }
+
+            .profile-wrap {
+                margin-top: 20px;
+            }
+
+            .education-grid,
+            .certificate-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 650px) {
+
+            nav {
+                top: 10px;
+                width: calc(100% - 20px);
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 8px 11px;
+            }
+
+            .page {
+                padding: 100px 16px 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 52px;
+            }
+
+            .section-title h2 {
+                font-size: 40px;
+            }
+
+            .personal-grid,
+            .education-grid,
+            .certificate-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card img {
+                height: 420px;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<div class="background">
-    <div class="blob one"></div>
-    <div class="blob two"></div>
-    <div class="blob three"></div>
+    <!-- =========================
+         BACKGROUND
+    ========================= -->
 
-    <div class="cloud c1"></div>
-    <div class="cloud c2"></div>
+    <div class="background">
 
-    <div class="star s1">✦</div>
-    <div class="star s2">✧</div>
-    <div class="star s3">♡</div>
-    <div class="star s4">★</div>
-    <div class="star s5">✦</div>
-</div>
+        <div class="blob one"></div>
+        <div class="blob two"></div>
+        <div class="blob three"></div>
 
-<div class="app">
+        <div class="star">✦</div>
+        <div class="star">✧</div>
+        <div class="star">✦</div>
+        <div class="star">✧</div>
 
-    <nav class="navbar">
-        <div class="nav">
-            <a href="index.html" class="active">🏠 หน้าแรก</a>
-            <a href="preface.html">📖 คำนำ</a>
-            <a href="personal.html">👤 ประวัติ</a>
-            <a href="education.html">🎓 การศึกษา</a>
-            <a href="goal.html">🎯 เป้าหมาย</a>
-            <a href="certificate.html">🏆 เกียรติบัตร</a>
-            <a href="contact.html">📞 ติดต่อ</a>
-        </div>
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <a href="#home" data-page="home">🏠 หน้าแรก</a>
+
+        <a href="#preface" data-page="preface">📖 คำนำ</a>
+
+        <a href="#personal" data-page="personal">👤 ประวัติ</a>
+
+        <a href="#education" data-page="education">🎓 การศึกษา</a>
+
+        <a href="#goal" data-page="goal">🎯 เป้าหมาย</a>
+
+        <a href="#certificate" data-page="certificate">🏆 เกียรติบัตร</a>
+
+        <a href="#contact" data-page="contact">📞 ติดต่อ</a>
+
     </nav>
 
-    <main>
 
-        <section class="home">
+    <!-- =========================
+         HOME
+    ========================= -->
 
-            <div class="card home-card">
+    <section class="page active" id="home">
 
-                <div class="home-text">
+        <div class="container">
 
-                    <div class="home-badge">
-                        🎀 Welcome to My Portfolio
+            <div class="hero">
+
+                <div class="hero-text">
+
+                    <div class="subtitle">
+                        ✨ PORTFOLIO
                     </div>
 
-                    <h1>Portfolio</h1>
-
-                    <h2>ธนัญชนก มะอินทร์</h2>
+                    <h1>
+                        ธนัญชนก<br>
+                        <span>มะอินทร์</span>
+                    </h1>
 
                     <p>
-                        แฟ้มสะสมผลงานที่รวบรวมประวัติ
-                        การศึกษา ความสนใจ ประสบการณ์
-                        และเป้าหมายในอนาคตของดิฉัน
+                        แฟ้มสะสมผลงานสำหรับนำเสนอประวัติ
+                        การศึกษา ความสนใจ เป้าหมาย
+                        และประสบการณ์ต่าง ๆ
                     </p>
 
-                    <div class="home-buttons">
-
-                        <a href="personal.html" class="main-btn">
-                            👤 รู้จักฉัน
-                        </a>
-
-                        <a href="goal.html" class="secondary-btn">
-                            🎯 เป้าหมายของฉัน
-                        </a>
-
-                    </div>
+                    <a href="#personal" class="button">
+                        ดูประวัติของฉัน →
+                    </a>
 
                 </div>
 
-                <div class="home-visual">
 
-                    <div class="orbit"></div>
-                    <div class="orbit two"></div>
+                <div class="profile-wrap">
 
-                    <div class="home-deco d1">✦</div>
-                    <div class="home-deco d2">♡</div>
-                    <div class="home-deco d3">🎀</div>
+                    <div class="profile-card">
 
-                    <div class="home-photo">
+                        <div class="heart one">💗</div>
+                        <div class="heart two">💖</div>
 
                         <img
-                            src="images/87683A30-1C97-4B59-8363-70B8CC04A306.jpg"
-                            alt="รูปโปรไฟล์ ธนัญชนก มะอินทร์"
-                        >
+                            src="87683A30-1C97-4B59-8363-70B8CC04A306.jpg"
+                            alt="รูปโปรไฟล์">
 
                     </div>
 
@@ -104,21 +868,737 @@
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
-    <footer class="footer">
-        <p>
-            Made with 💗 ✨ 🎀
-            <br>
-            Portfolio | ธนัญชนก มะอินทร์
-        </p>
-    </footer>
 
-</div>
+    <!-- =========================
+         PREFACE
+    ========================= -->
 
-<script src="js/script.js"></script>
+    <section class="page" id="preface">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="emoji">📖</div>
+
+                <h2>คำนำ</h2>
+
+                <p>Preface</p>
+
+            </div>
+
+
+            <div class="glass preface-card">
+
+                <div class="big">
+                    Welcome to my Portfolio 💗
+                </div>
+
+                <p>
+                    แฟ้มสะสมผลงานเล่มนี้จัดทำขึ้นเพื่อรวบรวม
+                    ประวัติส่วนตัว ประวัติการศึกษา ผลงาน
+                    เกียรติบัตร และเป้าหมายในการศึกษาต่อ
+                    เพื่อแสดงให้เห็นถึงความตั้งใจ ความสนใจ
+                    และการพัฒนาตนเองของดิฉัน
+                </p>
+
+                <br>
+
+                <p>
+                    ดิฉันหวังว่า Portfolio เล่มนี้จะช่วยให้
+                    ทุกคนได้รู้จักตัวตน ความสามารถ
+                    และเป้าหมายของดิฉันมากยิ่งขึ้น
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PERSONAL
+    ========================= -->
+
+    <section class="page" id="personal">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="emoji">👤</div>
+
+                <h2>ประวัติส่วนตัว</h2>
+
+                <p>Personal Information</p>
+
+            </div>
+
+
+            <div class="personal-grid">
+
+                <div class="glass">
+
+                    <div class="info-item">
+
+                        <div class="info-icon">👩🏻</div>
+
+                        <div>
+                            <strong>ชื่อ - นามสกุล</strong>
+                            ธนัญชนก มะอินทร์
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-icon">🎂</div>
+
+                        <div>
+                            <strong>วันเกิด</strong>
+                            26 มกราคม 2552
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-icon">🎓</div>
+
+                        <div>
+                            <strong>ระดับการศึกษา</strong>
+                            มัธยมศึกษาปีที่ 6
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="glass">
+
+                    <div class="info-item">
+
+                        <div class="info-icon">🏫</div>
+
+                        <div>
+                            <strong>สถานศึกษา</strong>
+                            โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-icon">🎧</div>
+
+                        <div>
+                            <strong>งานอดิเรก</strong>
+                            อ่านหนังสือ ฟังเพลง
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-icon">💡</div>
+
+                        <div>
+                            <strong>ความสนใจ</strong>
+                            การเรียนรู้และการพัฒนาตนเอง
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section class="page" id="education">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="emoji">🎓</div>
+
+                <h2>ประวัติการศึกษา</h2>
+
+                <p>Education</p>
+
+            </div>
+
+
+            <div class="education-grid">
+
+
+                <div class="glass education-card">
+
+                    <img
+                        src="S__9756685.jpg"
+                        alt="ระดับประถมศึกษา">
+
+                    <div class="education-content">
+
+                        <h3>📚 ระดับประถมศึกษา</h3>
+
+                        <p>
+                            โรงเรียนกุญแจคริสเตียนวิทยา
+                        </p>
+
+                        <span class="year">
+                            Primary School
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="glass education-card">
+
+                    <img
+                        src="S__9764868.jpg"
+                        alt="ระดับมัธยมศึกษาตอนต้น">
+
+                    <div class="education-content">
+
+                        <h3>📘 มัธยมศึกษาตอนต้น</h3>
+
+                        <p>
+                            โรงเรียนบ้านบึง“อุตสาหกรรมนุเคราะห์”
+                        </p>
+
+                        <span class="year">
+                            Lower Secondary
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="glass education-card">
+
+                    <img
+                        src="S__9764868.jpg"
+                        alt="ระดับมัธยมศึกษาตอนปลาย">
+
+                    <div class="education-content">
+
+                        <h3>🎓 มัธยมศึกษาตอนปลาย</h3>
+
+                        <p>
+                            โรงเรียนบ้านบึง“อุตสาหกรรมนุเคราะห์”
+                        </p>
+
+                        <span class="year">
+                            Upper Secondary
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GOAL
+    ========================= -->
+
+    <section class="page" id="goal">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="emoji">🎯</div>
+
+                <h2>เป้าหมายการศึกษาต่อ</h2>
+
+                <p>My Future Goal</p>
+
+            </div>
+
+
+            <div class="glass goal-card">
+
+                <h3>
+                    💗 ความฝันและเป้าหมายของฉัน
+                </h3>
+
+                <p>
+
+                    ดิฉันมีความสนใจในจิตวิทยา
+                    เพราะดิฉันต้องการทำความเข้าใจความคิด
+                    ความรู้สึก และพฤติกรรมของมนุษย์
+                    รวมถึงความแตกต่างของแต่ละบุคคล
+                    โดยเฉพาะเรื่องการสื่อสาร
+                    การทำงานร่วมกับผู้อื่น
+                    และการทำงานเป็นทีม
+
+                    <br><br>
+
+                    ความสนใจนี้ทำให้ดิฉันอยากเรียนรู้ว่า
+                    หลักจิตวิทยาสามารถนำมาประยุกต์ใช้กับ
+                    การทำงานและการพัฒนาคนในองค์กรได้อย่างไร
+                    จึงมีความตั้งใจศึกษาต่อคณะศิลปศาสตร์
+                    มหาวิทยาลัยธรรมศาสตร์
+                    สาขาจิตวิทยาอุตสาหกรรมและองค์การ
+                    เพราะเป็นสาขาที่ตรงกับความสนใจ
+                    และเป้าหมายที่วางไว้
+
+                    <br><br>
+
+                    โดยต้องการเรียนรู้เกี่ยวกับการพัฒนาบุคลากร
+                    การสร้างแรงจูงใจ การคัดเลือกบุคลากร
+                    และการสร้างสภาพแวดล้อมในการทำงานที่ดี
+                    รวมถึงพัฒนาทักษะด้านการสื่อสาร
+                    การวิเคราะห์ และการทำงานร่วมกับผู้อื่น
+
+                    <br><br>
+
+                    ในอนาคต ดิฉันตั้งใจนำความรู้ที่ได้รับ
+                    ไปต่อยอดสู่อาชีพด้านทรัพยากรมนุษย์
+                    หรือการพัฒนาบุคลากร
+                    และมีส่วนช่วยให้องค์กรสามารถพัฒนาคน
+                    ควบคู่ไปกับการพัฒนาองค์กรได้อย่างมีประสิทธิภาพ
+
+                    <br><br>
+
+                    พร้อมเรียนรู้และพัฒนาตนเองอย่างต่อเนื่อง
+                    เพื่อเติบโตเป็นบุคลากรที่สามารถนำความรู้
+                    ด้านจิตวิทยาไปใช้ให้เกิดประโยชน์ได้จริง
+
+                </p>
+
+
+                <div class="future-box">
+
+                    🌷 <strong>เป้าหมายในอนาคต</strong>
+
+                    <br><br>
+
+                    ศึกษาต่อด้านจิตวิทยาอุตสาหกรรมและองค์การ
+                    และนำความรู้ไปพัฒนาคนและองค์กร
+                    ให้สามารถเติบโตไปด้วยกันอย่างมีประสิทธิภาพ
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATE
+    ========================= -->
+
+    <section class="page" id="certificate">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="emoji">🏆</div>
+
+                <h2>เกียรติบัตร</h2>
+
+                <p>Certificates</p>
+
+            </div>
+
+
+            <div class="certificate-grid">
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9740298.jpg','Certificate 1')">
+
+                    <img
+                        src="S__9740298.jpg"
+                        alt="เกียรติบัตร 1">
+
+                </div>
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9740299.jpg','Certificate 2')">
+
+                    <img
+                        src="S__9740299.jpg"
+                        alt="เกียรติบัตร 2">
+
+                </div>
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9740300.jpg','Certificate 3')">
+
+                    <img
+                        src="S__9740300.jpg"
+                        alt="เกียรติบัตร 3">
+
+                </div>
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9740301.jpg','Certificate 4')">
+
+                    <img
+                        src="S__9740301.jpg"
+                        alt="เกียรติบัตร 4">
+
+                </div>
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9740302.jpg','Certificate 5')">
+
+                    <img
+                        src="S__9740302.jpg"
+                        alt="เกียรติบัตร 5">
+
+                </div>
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9740303.jpg','Certificate 6')">
+
+                    <img
+                        src="S__9740303.jpg"
+                        alt="เกียรติบัตร 6">
+
+                </div>
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9740305.jpg','Certificate 7')">
+
+                    <img
+                        src="S__9740305.jpg"
+                        alt="เกียรติบัตร 7">
+
+                </div>
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9748494.jpg','Certificate 8')">
+
+                    <img
+                        src="S__9748494.jpg"
+                        alt="เกียรติบัตร 8">
+
+                </div>
+
+
+                <div
+                    class="glass certificate"
+                    onclick="openLightbox('S__9748495.jpg','Certificate 9')">
+
+                    <img
+                        src="S__9748495.jpg"
+                        alt="เกียรติบัตร 9">
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section class="page" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="emoji">📞</div>
+
+                <h2>ติดต่อ</h2>
+
+                <p>Contact</p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+
+                <div class="glass contact-card">
+
+                    <div class="icon">📧</div>
+
+                    <h3>Email</h3>
+
+                    <p>
+                        s34874@banbung.ac.th
+                    </p>
+
+                </div>
+
+
+                <div class="glass contact-card">
+
+                    <div class="icon">📱</div>
+
+                    <h3>โทรศัพท์</h3>
+
+                    <p>
+                        0952544994
+                    </p>
+
+                </div>
+
+
+                <div class="glass contact-card">
+
+                    <div class="icon">🏫</div>
+
+                    <h3>โรงเรียน</h3>
+
+                    <p>
+                        บ้านบึง"อุตสาหกรรมนุเคราะห์
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <footer>
+
+                © 2026 ธนัญชนก มะอินทร์
+                <br>
+                My Portfolio 💗
+
+            </footer>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LIGHTBOX
+    ========================= -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        onclick="closeLightbox()">
+
+        <div
+            class="close"
+            onclick="closeLightbox()">
+            ×
+        </div>
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt="Certificate">
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           PAGE SYSTEM
+        ========================= */
+
+        const pages =
+            document.querySelectorAll(".page");
+
+        const navLinks =
+            document.querySelectorAll("nav a");
+
+
+        function showPage(pageId) {
+
+            pages.forEach(page => {
+
+                page.classList.remove("active");
+
+            });
+
+
+            const target =
+                document.getElementById(pageId);
+
+            if (target) {
+
+                target.classList.add("active");
+
+            }
+
+
+            navLinks.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (
+                    link.dataset.page === pageId
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+
+            history.replaceState(
+                null,
+                "",
+                "#" + pageId
+            );
+
+        }
+
+
+        navLinks.forEach(link => {
+
+            link.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    showPage(
+                        this.dataset.page
+                    );
+
+                }
+            );
+
+        });
+
+
+        /* =========================
+           INITIAL PAGE
+        ========================= */
+
+        const firstPage =
+            location.hash.replace("#", "");
+
+
+        if (
+            firstPage &&
+            document.getElementById(firstPage)
+        ) {
+
+            showPage(firstPage);
+
+        } else {
+
+            showPage("home");
+
+        }
+
+
+        /* =========================
+           LIGHTBOX
+        ========================= */
+
+        function openLightbox(image, title) {
+
+            const lightbox =
+                document.getElementById("lightbox");
+
+            const imageElement =
+                document.getElementById("lightboxImage");
+
+            imageElement.src = image;
+
+            imageElement.alt = title;
+
+            lightbox.classList.add("active");
+
+        }
+
+
+        function closeLightbox() {
+
+            document
+                .getElementById("lightbox")
+                .classList.remove("active");
+
+        }
+
+
+        /* =========================
+           ESC KEY
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+
+                    closeLightbox();
+
+                }
+
+            }
+        );
+
+    </script>
 
 </body>
+
 </html>
