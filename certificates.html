@@ -1,221 +1,1272 @@
 
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>เกียรติบัตร | Portfolio</title>
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================================================
+   CERTIFICATES PAGE
+========================================================= */
+
+.page {
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 55px;
+    padding: 0 20px;
+}
+
+.small-title {
+    font-size: 14px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    opacity: .65;
+    margin-bottom: 10px;
+}
+
+.page-header h1 {
+    font-size: clamp(40px, 6vw, 65px);
+    margin: 0 0 12px;
+}
+
+.page-header p {
+    font-size: 17px;
+    opacity: .75;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   CERTIFICATE GRID
+========================================================= */
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+
+/* =========================================================
+   CERTIFICATE CARD
+========================================================= */
+
+.certificate {
+    overflow: hidden;
+    border-radius: 24px;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.certificate:hover {
+    transform: translateY(-8px);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.certificate-image {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 18px;
+
+    background: rgba(255,255,255,.04);
+
+    cursor: zoom-in;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.certificate-image img {
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+}
+
+.certificate-image:hover img {
+
+    transform: scale(1.025);
+
+    filter: brightness(1.06);
+}
+
+
+/* =========================================================
+   CERTIFICATE CONTENT
+========================================================= */
+
+.certificate-content {
+
+    padding: 28px 30px 30px;
+}
+
+.certificate-content h3 {
+
+    font-size: 24px;
+
+    margin: 0 0 18px;
+}
+
+.certificate-content p {
+
+    line-height: 1.8;
+
+    margin: 10px 0;
+
+    opacity: .85;
+}
+
+.certificate-content strong {
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TAG
+========================================================= */
+
+.tag {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 7px 16px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    background: rgba(255,255,255,.10);
+
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,.93);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+
+    cursor: zoom-out;
+}
+
+.lightbox.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.lightbox img {
+
+    max-width: 94vw;
+
+    max-height: 90vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 20px 80px rgba(0,0,0,.7);
+
+    transform: scale(.90);
+
+    transition:
+        transform .35s ease;
+}
+
+.lightbox.active img {
+
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.lightbox-close {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: 30px;
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    color: white;
+
+    background: rgba(255,255,255,.12);
+
+    border: 1px solid rgba(255,255,255,.20);
+
+    cursor: pointer;
+
+    z-index: 10000;
+
+    transition: .3s ease;
+}
+
+.lightbox-close:hover {
+
+    background: rgba(255,255,255,.25);
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   LIGHTBOX HINT
+========================================================= */
+
+.lightbox-hint {
+
+    position: fixed;
+
+    bottom: 22px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   NEXT PAGE
+========================================================= */
+
+.next-page {
+
+    margin-top: 60px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.next-card {
+
+    display: block;
+
+    padding: 25px 28px;
+
+    border-radius: 20px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background: rgba(255,255,255,.04);
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+.next-card:hover {
+
+    transform: translateY(-5px);
+
+    background: rgba(255,255,255,.08);
+}
+
+.next-card small {
+
+    opacity: .55;
+}
+
+.next-card h3 {
+
+    margin: 8px 0 0;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+
+    animation:
+        revealCard .8s ease both;
+}
+
+.certificate:nth-child(1) {
+    animation-delay: .05s;
+}
+
+.certificate:nth-child(2) {
+    animation-delay: .10s;
+}
+
+.certificate:nth-child(3) {
+    animation-delay: .15s;
+}
+
+.certificate:nth-child(4) {
+    animation-delay: .20s;
+}
+
+.certificate:nth-child(5) {
+    animation-delay: .25s;
+}
+
+.certificate:nth-child(6) {
+    animation-delay: .30s;
+}
+
+.certificate:nth-child(7) {
+    animation-delay: .35s;
+}
+
+.certificate:nth-child(8) {
+    animation-delay: .40s;
+}
+
+.certificate:nth-child(9) {
+    animation-delay: .45s;
+}
+
+@keyframes revealCard {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .certificate-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .next-page {
+
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page {
+
+        padding-top: 100px;
+    }
+
+    .certificate-image {
+
+        padding: 12px;
+    }
+
+    .certificate-content {
+
+        padding: 23px;
+    }
+
+    .certificate-content h3 {
+
+        font-size: 21px;
+    }
+
+    .certificate-content p {
+
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+    .lightbox {
+
+        padding: 15px;
+    }
+
+    .lightbox img {
+
+        max-width: 96vw;
+
+        max-height: 86vh;
+    }
+
+    .lightbox-close {
+
+        top: 15px;
+
+        right: 15px;
+
+        width: 45px;
+
+        height: 45px;
+    }
+}
+
+</style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
 <nav class="navbar">
+
 <div class="nav-container">
 
-<a href="index.html" class="logo">MY<span>PORTFOLIO</span></a>
+<a href="index.html" class="logo">
+MY<span>PORTFOLIO</span>
+</a>
+
 
 <ul class="nav-links">
-<li><a href="index.html">หน้าหลัก</a></li>
-<li><a href="preface.html">คำนำ</a></li>
-<li><a href="profile.html">ประวัติส่วนตัว</a></li>
-<li><a href="education.html">การศึกษา</a></li>
-<li><a href="certificates.html">เกียรติบัตร</a></li>
-<li><a href="activities.html">กิจกรรม</a></li>
-<li><a href="contact.html">ติดต่อ</a></li>
+
+<li>
+<a href="index.html">
+หน้าหลัก
+</a>
+</li>
+
+<li>
+<a href="preface.html">
+คำนำ
+</a>
+</li>
+
+<li>
+<a href="profile.html">
+ประวัติส่วนตัว
+</a>
+</li>
+
+<li>
+<a href="education.html">
+การศึกษา
+</a>
+</li>
+
+<li>
+<a href="certificates.html">
+เกียรติบัตร
+</a>
+</li>
+
+<li>
+<a href="activities.html">
+กิจกรรม
+</a>
+</li>
+
+<li>
+<a href="contact.html">
+ติดต่อ
+</a>
+</li>
+
 </ul>
 
 </div>
+
 </nav>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
 <main class="page">
 
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header class="page-header">
-<div class="small-title">CERTIFICATES</div>
-<h1>เกียรติบัตร</h1>
-<p>รวบรวมเกียรติบัตรและความสำเร็จที่ได้รับ</p>
+
+<div class="small-title">
+CERTIFICATES
+</div>
+
+<h1>
+เกียรติบัตร
+</h1>
+
+<p>
+รวบรวมเกียรติบัตร ผลงาน และประสบการณ์การเรียนรู้ที่ได้รับ
+</p>
+
 </header>
+
+
 
 <div class="container">
 
+
+<!-- =========================================================
+     CERTIFICATE GRID
+========================================================= -->
+
 <div class="certificate-grid">
 
-<div class="card certificate reveal">
 
-<div class="certificate-image">
-<img src="images/certificate1.jpg" alt="เกียรติบัตรที่ 1">
-</div>
 
-<div class="certificate-content">
-<h3>เกียรติบัตรที่ 1</h3>
-
-<p>
-ชื่อกิจกรรม / หลักสูตร:
-ใส่ชื่อกิจกรรม
-</p>
-
-<p>
-รายละเอียด:
-อธิบายว่าได้รับเกียรติบัตรจากกิจกรรมอะไร
-และได้เรียนรู้หรือพัฒนาทักษะด้านใด
-</p>
-
-<span class="tag">Certificate</span>
-</div>
-
-</div>
-
+<!-- =========================================================
+     CERTIFICATE 1
+========================================================= -->
 
 <div class="card certificate reveal">
 
-<div class="certificate-image">
-<img src="images/certificate2.jpg" alt="เกียรติบัตรที่ 2">
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9748495.jpg')"
+>
+
+<img
+src="images/S__9748495.jpg"
+alt="เกียรติบัตรที่ 1"
+loading="lazy"
+>
+
 </div>
+
 
 <div class="certificate-content">
-<h3>เกียรติบัตรที่ 2</h3>
+
+<h3>
+เกียรติบัตรที่ 1
+</h3>
 
 <p>
-ชื่อกิจกรรม / หลักสูตร:
-ใส่ชื่อกิจกรรม
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+การอบรมและกิจกรรมส่งเสริมการเรียนรู้
 </p>
 
 <p>
-รายละเอียด:
-อธิบายรายละเอียดของเกียรติบัตร
-ความรู้และประสบการณ์ที่ได้รับ
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรมการเรียนรู้
+ซึ่งช่วยส่งเสริมความรู้ ความสามารถ และประสบการณ์
+ในการเรียนรู้สิ่งใหม่ ๆ พร้อมทั้งพัฒนาทักษะการทำงาน
+และการนำความรู้ไปประยุกต์ใช้
 </p>
 
-<span class="tag">Certificate</span>
+<span class="tag">
+Certificate
+</span>
+
 </div>
 
 </div>
 
+
+
+<!-- =========================================================
+     CERTIFICATE 2
+========================================================= -->
 
 <div class="card certificate reveal">
 
-<div class="certificate-image">
-<img src="images/certificate3.jpg" alt="เกียรติบัตรที่ 3">
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9748494.jpg')"
+>
+
+<img
+src="images/S__9748494.jpg"
+alt="เกียรติบัตรที่ 2"
+loading="lazy"
+>
+
 </div>
+
 
 <div class="certificate-content">
-<h3>เกียรติบัตรที่ 3</h3>
+
+<h3>
+เกียรติบัตรที่ 2
+</h3>
 
 <p>
-ชื่อกิจกรรม / หลักสูตร:
-ใส่ชื่อกิจกรรม
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+กิจกรรมพัฒนาความรู้และทักษะ
 </p>
 
 <p>
-รายละเอียด:
-อธิบายรายละเอียดและความสำคัญ
-ของเกียรติบัตรใบนี้
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
+ที่มุ่งเน้นการพัฒนาความรู้และทักษะที่สามารถนำไปใช้
+ในการเรียนและการดำเนินชีวิต ช่วยฝึกความรับผิดชอบ
+การเรียนรู้ด้วยตนเอง และการทำงานอย่างเป็นระบบ
 </p>
 
-<span class="tag">Certificate</span>
+<span class="tag">
+Certificate
+</span>
+
 </div>
 
 </div>
 
+
+
+<!-- =========================================================
+     CERTIFICATE 3
+========================================================= -->
 
 <div class="card certificate reveal">
 
-<div class="certificate-image">
-<img src="images/certificate4.jpg" alt="เกียรติบัตรที่ 4">
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9740305.jpg')"
+>
+
+<img
+src="images/S__9740305.jpg"
+alt="เกียรติบัตรที่ 3"
+loading="lazy"
+>
+
 </div>
+
 
 <div class="certificate-content">
-<h3>เกียรติบัตรที่ 4</h3>
+
+<h3>
+เกียรติบัตรที่ 3
+</h3>
 
 <p>
-ชื่อกิจกรรม / หลักสูตร:
-ใส่ชื่อกิจกรรม
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+กิจกรรมส่งเสริมการเรียนรู้และการพัฒนาตนเอง
 </p>
 
 <p>
-รายละเอียด:
-ใส่คำอธิบายเพิ่มเติม
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
+ที่ช่วยเปิดโอกาสให้เรียนรู้จากประสบการณ์จริง
+พัฒนาความคิดสร้างสรรค์ และฝึกการนำความรู้
+มาประยุกต์ใช้กับสถานการณ์ต่าง ๆ
 </p>
 
-<span class="tag">Achievement</span>
+<span class="tag">
+Certificate
+</span>
+
 </div>
 
 </div>
 
+
+
+<!-- =========================================================
+     CERTIFICATE 4
+========================================================= -->
 
 <div class="card certificate reveal">
 
-<div class="certificate-image">
-<img src="images/certificate5.jpg" alt="เกียรติบัตรที่ 5">
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9740303.jpg')"
+>
+
+<img
+src="images/S__9740303.jpg"
+alt="เกียรติบัตรที่ 4"
+loading="lazy"
+>
+
 </div>
+
 
 <div class="certificate-content">
-<h3>เกียรติบัตรที่ 5</h3>
+
+<h3>
+เกียรติบัตรที่ 4
+</h3>
 
 <p>
-ชื่อกิจกรรม / หลักสูตร:
-ใส่ชื่อกิจกรรม
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+กิจกรรมเสริมสร้างความรู้และประสบการณ์
 </p>
 
 <p>
-รายละเอียด:
-ใส่คำอธิบายเพิ่มเติม
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรมเสริมสร้าง
+ประสบการณ์นอกห้องเรียน ช่วยพัฒนาทักษะการคิด
+การเรียนรู้ การแก้ปัญหา และการทำงานร่วมกับผู้อื่น
 </p>
 
-<span class="tag">Achievement</span>
+<span class="tag">
+Achievement
+</span>
+
 </div>
 
 </div>
 
+
+
+<!-- =========================================================
+     CERTIFICATE 5
+========================================================= -->
 
 <div class="card certificate reveal">
 
-<div class="certificate-image">
-<img src="images/certificate6.jpg" alt="เกียรติบัตรที่ 6">
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9740302.jpg')"
+>
+
+<img
+src="images/S__9740302.jpg"
+alt="เกียรติบัตรที่ 5"
+loading="lazy"
+>
+
 </div>
+
 
 <div class="certificate-content">
-<h3>เกียรติบัตรที่ 6</h3>
+
+<h3>
+เกียรติบัตรที่ 5
+</h3>
 
 <p>
-ชื่อกิจกรรม / หลักสูตร:
-ใส่ชื่อกิจกรรม
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+กิจกรรมการเรียนรู้เพื่อพัฒนาศักยภาพ
 </p>
 
 <p>
-รายละเอียด:
-ใส่คำอธิบายเพิ่มเติม
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากกิจกรรมที่ส่งเสริมการพัฒนา
+ศักยภาพของผู้เรียน ทั้งด้านความรู้ ทักษะ และ
+ประสบการณ์ ช่วยให้สามารถเรียนรู้และพัฒนาตนเอง
+ได้อย่างต่อเนื่อง
 </p>
 
-<span class="tag">Achievement</span>
-</div>
+<span class="tag">
+Achievement
+</span>
 
 </div>
 
 </div>
+
+
+
+<!-- =========================================================
+     CERTIFICATE 6
+========================================================= -->
+
+<div class="card certificate reveal">
+
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9740301.jpg')"
+>
+
+<img
+src="images/S__9740301.jpg"
+alt="เกียรติบัตรที่ 6"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="certificate-content">
+
+<h3>
+เกียรติบัตรที่ 6
+</h3>
+
+<p>
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+กิจกรรมส่งเสริมทักษะและความสามารถ
+</p>
+
+<p>
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
+ที่ช่วยพัฒนาความสามารถและทักษะที่จำเป็น
+ทั้งด้านการเรียนรู้ การสื่อสาร ความรับผิดชอบ
+และการทำงานร่วมกับผู้อื่น
+</p>
+
+<span class="tag">
+Achievement
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     CERTIFICATE 7
+========================================================= -->
+
+<div class="card certificate reveal">
+
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9740300.jpg')"
+>
+
+<img
+src="images/S__9740300.jpg"
+alt="เกียรติบัตรที่ 7"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="certificate-content">
+
+<h3>
+เกียรติบัตรที่ 7
+</h3>
+
+<p>
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+กิจกรรมพัฒนาทักษะการเรียนรู้
+</p>
+
+<p>
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากกิจกรรมที่ช่วยส่งเสริม
+การเรียนรู้และการพัฒนาตนเอง ทำให้ได้รับ
+ประสบการณ์ใหม่ ๆ และสามารถนำความรู้
+ไปต่อยอดในการเรียนและการทำงานในอนาคต
+</p>
+
+<span class="tag">
+Achievement
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     CERTIFICATE 8
+========================================================= -->
+
+<div class="card certificate reveal">
+
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9740299.jpg')"
+>
+
+<img
+src="images/S__9740299.jpg"
+alt="เกียรติบัตรที่ 8"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="certificate-content">
+
+<h3>
+เกียรติบัตรที่ 8
+</h3>
+
+<p>
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+กิจกรรมส่งเสริมความสามารถและประสบการณ์
+</p>
+
+<p>
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
+ที่เปิดโอกาสให้พัฒนาความรู้และประสบการณ์
+พร้อมฝึกทักษะการเรียนรู้ การคิดวิเคราะห์
+และการนำความรู้ไปประยุกต์ใช้
+</p>
+
+<span class="tag">
+Achievement
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     CERTIFICATE 9
+========================================================= -->
+
+<div class="card certificate reveal">
+
+<div
+class="certificate-image"
+onclick="openLightbox('images/S__9740298.jpg')"
+>
+
+<img
+src="images/S__9740298.jpg"
+alt="เกียรติบัตรที่ 9"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="certificate-content">
+
+<h3>
+เกียรติบัตรที่ 9
+</h3>
+
+<p>
+<strong>ชื่อกิจกรรม / หลักสูตร:</strong>
+กิจกรรมเสริมสร้างประสบการณ์และการเรียนรู้
+</p>
+
+<p>
+<strong>รายละเอียด:</strong>
+ได้รับเกียรติบัตรจากกิจกรรมที่ช่วยส่งเสริม
+การเรียนรู้จากประสบการณ์จริง พัฒนาทักษะ
+การทำงานอย่างเป็นระบบ และสร้างแรงบันดาลใจ
+ในการพัฒนาตนเองอย่างต่อเนื่อง
+</p>
+
+<span class="tag">
+Achievement
+</span>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<!-- =========================================================
+     PAGE NAVIGATION
+========================================================= -->
 
 <div class="next-page">
-<a href="education.html" class="next-card">
-<small>ก่อนหน้า</small>
-<h3>← การศึกษา</h3>
+
+<a
+href="education.html"
+class="next-card"
+>
+
+<small>
+ก่อนหน้า
+</small>
+
+<h3>
+← การศึกษา
+</h3>
+
 </a>
 
-<a href="activities.html" class="next-card">
-<small>ถัดไป</small>
-<h3>กิจกรรม →</h3>
+
+<a
+href="activities.html"
+class="next-card"
+>
+
+<small>
+ถัดไป
+</small>
+
+<h3>
+กิจกรรม →
+</h3>
+
 </a>
+
 </div>
+
 
 </div>
 
 </main>
 
+
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+id="lightbox"
+class="lightbox"
+onclick="closeLightbox()"
+>
+
+<button
+class="lightbox-close"
+onclick="closeLightbox(event)"
+aria-label="ปิดรูป"
+>
+×
+</button>
+
+
+<img
+id="lightboxImage"
+src=""
+alt="เกียรติบัตร"
+onclick="event.stopPropagation()"
+>
+
+
+<div class="lightbox-hint">
+คลิกพื้นที่ว่างเพื่อปิด
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
-<strong>MY PORTFOLIO</strong>
+
+<strong>
+MY PORTFOLIO
+</strong>
+
 <br>
+
 © 2026 Portfolio
+
 </footer>
 
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   OPEN LIGHTBOX
+========================================================= */
+
+function openLightbox(imageSrc) {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const lightboxImage =
+        document.getElementById("lightboxImage");
+
+
+    lightboxImage.src = imageSrc;
+
+
+    lightbox.classList.add("active");
+
+
+    document.body.style.overflow = "hidden";
+}
+
+
+
+/* =========================================================
+   CLOSE LIGHTBOX
+========================================================= */
+
+function closeLightbox(event) {
+
+    if (event) {
+
+        event.stopPropagation();
+
+    }
+
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const lightboxImage =
+        document.getElementById("lightboxImage");
+
+
+    lightbox.classList.remove("active");
+
+
+    document.body.style.overflow = "";
+
+
+    setTimeout(function() {
+
+        lightboxImage.src = "";
+
+    }, 300);
+
+}
+
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+</script>
+
+
 </body>
+
 </html>
 
