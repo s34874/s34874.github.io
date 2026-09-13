@@ -47,33 +47,38 @@
 
 /* =========================================================
    IMAGE FRAME
+   ปรับกรอบตามสัดส่วนของรูป
 ========================================================= */
 
 .edu-image {
     width: 100%;
-    height: 450px;
+    height: auto;
     overflow: hidden;
+
     margin: 0;
     padding: 0;
+
     border-radius: 20px 20px 0 0;
-    background: #f5f5f5;
+
+    background: transparent;
+
+    line-height: 0;
 }
 
 
 /* =========================================================
    IMAGE
+   แสดงรูปครบ ไม่ตัดรูป
 ========================================================= */
 
 .edu-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
+
     display: block;
 
-    /* ทำให้รูปเต็มกรอบ */
-    object-fit: cover;
-
-    /* จัดตำแหน่งตรงกลาง */
-    object-position: center center;
+    object-fit: contain;
+    object-position: center;
 
     margin: 0;
     padding: 0;
@@ -87,7 +92,7 @@
 ========================================================= */
 
 .edu-card:hover .edu-image img {
-    transform: scale(1.04);
+    transform: scale(1.02);
 }
 
 
@@ -115,6 +120,7 @@
 .reveal {
     opacity: 0;
     transform: translateY(40px);
+
     transition:
         opacity 0.7s ease,
         transform 0.7s ease;
@@ -132,17 +138,24 @@
 
 .next-page {
     max-width: 1000px;
+
     margin: 60px auto 0;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 20px;
 }
 
+
 .next-card {
     display: block;
+
     text-decoration: none;
+
     padding: 25px;
+
     border-radius: 18px;
 
     transition:
@@ -150,19 +163,26 @@
         box-shadow 0.3s ease;
 }
 
+
 .next-card:hover {
     transform: translateY(-5px);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE TABLET
 ========================================================= */
 
 @media (max-width: 768px) {
 
     .edu-image {
-        height: 320px;
+        width: 100%;
+        height: auto;
+    }
+
+    .edu-image img {
+        width: 100%;
+        height: auto;
     }
 
     .edu-content {
@@ -176,10 +196,20 @@
 }
 
 
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
+
 @media (max-width: 480px) {
 
     .edu-image {
-        height: 250px;
+        width: 100%;
+        height: auto;
+    }
+
+    .edu-image img {
+        width: 100%;
+        height: auto;
     }
 
     .edu-content {
@@ -217,11 +247,13 @@
                 </a>
             </li>
 
+
             <li>
                 <a href="preface.html">
                     คำนำ
                 </a>
             </li>
+
 
             <li>
                 <a href="profile.html">
@@ -229,11 +261,13 @@
                 </a>
             </li>
 
+
             <li>
                 <a href="education.html" class="active">
                     การศึกษา
                 </a>
             </li>
+
 
             <li>
                 <a href="certificates.html">
@@ -241,11 +275,13 @@
                 </a>
             </li>
 
+
             <li>
                 <a href="activities.html">
                     กิจกรรม
                 </a>
             </li>
+
 
             <li>
                 <a href="contact.html">
@@ -278,9 +314,11 @@
             EDUCATION
         </div>
 
+
         <h1>
             ประวัติการศึกษา
         </h1>
+
 
         <p>
             เส้นทางการเรียนรู้และการศึกษาของฉัน
@@ -328,6 +366,7 @@
                             ระดับประถมศึกษา
                         </h3>
 
+
                         <p>
                             โรงเรียนกุญแจคริสเตียนวิทยา
                         </p>
@@ -368,6 +407,7 @@
                         <h3>
                             ระดับมัธยมศึกษาตอนต้น
                         </h3>
+
 
                         <p>
                             โรงเรียนบ้านบึง“อุตสาหกรรมนุเคราะห์”
@@ -410,6 +450,7 @@
                             ระดับมัธยมศึกษาตอนปลาย
                         </h3>
 
+
                         <p>
                             โรงเรียนบ้านบึง“อุตสาหกรรมนุเคราะห์”
                         </p>
@@ -432,13 +473,17 @@
         <div class="next-page">
 
 
-            <!-- PREVIOUS -->
+            <!-- PREVIOUS PAGE -->
 
-            <a href="profile.html" class="next-card">
+            <a
+                href="profile.html"
+                class="next-card"
+            >
 
                 <small>
                     ก่อนหน้า
                 </small>
+
 
                 <h3>
                     ← ประวัติส่วนตัว
@@ -447,13 +492,18 @@
             </a>
 
 
-            <!-- NEXT -->
 
-            <a href="certificates.html" class="next-card">
+            <!-- NEXT PAGE -->
+
+            <a
+                href="certificates.html"
+                class="next-card"
+            >
 
                 <small>
                     ถัดไป
                 </small>
+
 
                 <h3>
                     เกียรติบัตร →
@@ -479,7 +529,9 @@
         MY PORTFOLIO
     </strong>
 
+
     <br>
+
 
     © 2026 Portfolio
 
@@ -495,30 +547,35 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const items = document.querySelectorAll(".reveal");
+
+    const items =
+        document.querySelectorAll(".reveal");
 
 
-    const observer = new IntersectionObserver(
+    const observer =
+        new IntersectionObserver(
 
-        (entries) => {
+            (entries) => {
 
-            entries.forEach((entry) => {
 
-                if (entry.isIntersecting) {
+                entries.forEach((entry) => {
 
-                    entry.target.classList.add("show");
 
-                }
+                    if (entry.isIntersecting) {
 
-            });
+                        entry.target.classList.add("show");
 
-        },
+                    }
 
-        {
-            threshold: 0.15
-        }
+                });
 
-    );
+            },
+
+            {
+                threshold: 0.15
+            }
+
+        );
 
 
     items.forEach((item) => {
@@ -533,4 +590,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 </body>
+
 </html>
+
