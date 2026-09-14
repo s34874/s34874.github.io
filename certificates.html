@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th">
 
@@ -147,6 +146,8 @@
 .certificate-content h3 {
 
     font-size: 24px;
+
+    line-height: 1.4;
 
     margin: 0 0 18px;
 }
@@ -454,6 +455,54 @@
 
 
 /* =========================================================
+   ACCESSIBILITY
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+    }
+
+    .certificate:hover,
+    .next-card:hover {
+
+        transform: none;
+    }
+
+    .certificate-image:hover img {
+
+        transform: none;
+        filter: none;
+    }
+
+    .lightbox img {
+
+        transform: none;
+    }
+
+    .lightbox.active img {
+
+        transform: none;
+    }
+
+    .lightbox-close:hover {
+
+        transform: none;
+    }
+}
+
+
+/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -478,6 +527,18 @@
         padding-top: 100px;
     }
 
+    .page-header {
+
+        margin-bottom: 40px;
+    }
+
+    .page-header p {
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
     .certificate-image {
 
         padding: 12px;
@@ -491,6 +552,8 @@
     .certificate-content h3 {
 
         font-size: 21px;
+
+        line-height: 1.45;
     }
 
     .certificate-content p {
@@ -522,6 +585,43 @@
 
         height: 45px;
     }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .page {
+
+        padding-top: 90px;
+    }
+
+    .certificate-content {
+
+        padding: 20px;
+    }
+
+    .certificate-content h3 {
+
+        font-size: 19px;
+    }
+
+    .certificate-content p {
+
+        font-size: 13px;
+    }
+
+    .tag {
+
+        font-size: 12px;
+
+        padding: 6px 13px;
+    }
+
 }
 
 </style>
@@ -572,14 +672,14 @@ MY<span>PORTFOLIO</span>
 </li>
 
 <li>
-<a href="certificates.html">
+<a href="certificates.html" class="active">
 เกียรติบัตร
 </a>
 </li>
 
 <li>
 <a href="activities.html">
-ความสนใจในการศึกษาต้อง
+ความสนใจในการศึกษาต่อ
 </a>
 </li>
 
@@ -619,7 +719,8 @@ CERTIFICATES
 </h1>
 
 <p>
-รวบรวมเกียรติบัตร ผลงาน และประสบการณ์การเรียนรู้ที่ได้รับ
+รวบรวมเกียรติบัตร ผลงาน และประสบการณ์การเรียนรู้
+ที่สะท้อนถึงความรู้ ทักษะ และการพัฒนาตนเอง
 </p>
 
 </header>
@@ -646,11 +747,15 @@ CERTIFICATES
 <div
 class="certificate-image"
 onclick="openLightbox('S__9748495.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตรอบรมพื้นฐานวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์"
+onkeydown="handleImageKey(event, 'S__9748495.jpg')"
 >
 
 <img
 src="S__9748495.jpg"
-alt="เกียรติบัตรที่ 1"
+alt="เกียรติบัตรอบรมพื้นฐานวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์"
 loading="lazy"
 >
 
@@ -660,24 +765,24 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 1
+อบรมพื้นฐานวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-การอบรมและกิจกรรมส่งเสริมการเรียนรู้
+การอบรมพื้นฐานวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรมการเรียนรู้
-ซึ่งช่วยส่งเสริมความรู้ ความสามารถ และประสบการณ์
-ในการเรียนรู้สิ่งใหม่ ๆ พร้อมทั้งพัฒนาทักษะการทำงาน
-และการนำความรู้ไปประยุกต์ใช้
+เข้าร่วมการอบรมเพื่อเรียนรู้พื้นฐานด้านวิทยาการคอมพิวเตอร์
+และปัญญาประดิษฐ์ ได้ศึกษาแนวคิดเกี่ยวกับเทคโนโลยี
+การประมวลผลข้อมูล และการประยุกต์ใช้ปัญญาประดิษฐ์
+ในชีวิตประจำวันและการเรียนรู้
 </p>
 
 <span class="tag">
-Certificate
+Computer Science & AI
 </span>
 
 </div>
@@ -695,11 +800,15 @@ Certificate
 <div
 class="certificate-image"
 onclick="openLightbox('S__9748494.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตรการแข่งขันทักษะคณิตศาสตร์"
+onkeydown="handleImageKey(event, 'S__9748494.jpg')"
 >
 
 <img
 src="S__9748494.jpg"
-alt="เกียรติบัตรที่ 2"
+alt="เกียรติบัตรการแข่งขันทักษะคณิตศาสตร์ ระดับมัธยมศึกษาตอนปลาย"
 loading="lazy"
 >
 
@@ -709,24 +818,24 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 2
+การแข่งขันทักษะคณิตศาสตร์ ระดับมัธยมศึกษาตอนปลาย
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-กิจกรรมพัฒนาความรู้และทักษะ
+การแข่งขันทักษะคณิตศาสตร์ ระดับมัธยมศึกษาตอนปลาย
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
-ที่มุ่งเน้นการพัฒนาความรู้และทักษะที่สามารถนำไปใช้
-ในการเรียนและการดำเนินชีวิต ช่วยฝึกความรับผิดชอบ
-การเรียนรู้ด้วยตนเอง และการทำงานอย่างเป็นระบบ
+เข้าร่วมการแข่งขันทักษะคณิตศาสตร์ระดับมัธยมศึกษาตอนปลาย
+เพื่อทดสอบความรู้และความสามารถทางคณิตศาสตร์
+ฝึกการคิดวิเคราะห์ การแก้โจทย์ปัญหา และการคิดอย่างเป็นระบบ
+ภายใต้สถานการณ์การแข่งขัน
 </p>
 
 <span class="tag">
-Certificate
+Mathematics Competition
 </span>
 
 </div>
@@ -744,11 +853,15 @@ Certificate
 <div
 class="certificate-image"
 onclick="openLightbox('S__9740305.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตรการอบรมดับเพลิงและซ้อมอพยพหนีไฟ"
+onkeydown="handleImageKey(event, 'S__9740305.jpg')"
 >
 
 <img
 src="S__9740305.jpg"
-alt="เกียรติบัตรที่ 3"
+alt="เกียรติบัตรการอบรมความปลอดภัยและการระงับอัคคีภัย"
 loading="lazy"
 >
 
@@ -758,24 +871,24 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 3
+การอบรมความปลอดภัยและการระงับอัคคีภัยในสถานศึกษา
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-กิจกรรมส่งเสริมการเรียนรู้และการพัฒนาตนเอง
+อบรมดับเพลิงและซ้อมอพยพหนีไฟ
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
-ที่ช่วยเปิดโอกาสให้เรียนรู้จากประสบการณ์จริง
-พัฒนาความคิดสร้างสรรค์ และฝึกการนำความรู้
-มาประยุกต์ใช้กับสถานการณ์ต่าง ๆ
+เข้าร่วมการฝึกอบรมเกี่ยวกับการป้องกันและระงับอัคคีภัย
+การใช้เครื่องมือดับเพลิงเบื้องต้น และการซ้อมอพยพหนีไฟ
+เพื่อเรียนรู้วิธีปฏิบัติตนอย่างถูกต้องเมื่อเกิดเหตุฉุกเฉิน
+และส่งเสริมความปลอดภัยภายในสถานศึกษา
 </p>
 
 <span class="tag">
-Certificate
+Safety Training
 </span>
 
 </div>
@@ -793,11 +906,15 @@ Certificate
 <div
 class="certificate-image"
 onclick="openLightbox('S__9740303.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตรค่ายส่งเสริมคุณธรรมและจริยธรรม"
+onkeydown="handleImageKey(event, 'S__9740303.jpg')"
 >
 
 <img
 src="S__9740303.jpg"
-alt="เกียรติบัตรที่ 4"
+alt="เกียรติบัตรค่ายส่งเสริมคุณธรรมและจริยธรรมนักเรียน"
 loading="lazy"
 >
 
@@ -807,23 +924,24 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 4
+ค่ายส่งเสริมคุณธรรมและจริยธรรมนักเรียน
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-กิจกรรมเสริมสร้างความรู้และประสบการณ์
+กิจกรรมค่ายส่งเสริมคุณธรรมและจริยธรรมนักเรียน
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรมเสริมสร้าง
-ประสบการณ์นอกห้องเรียน ช่วยพัฒนาทักษะการคิด
-การเรียนรู้ การแก้ปัญหา และการทำงานร่วมกับผู้อื่น
+เข้าร่วมกิจกรรมค่ายส่งเสริมคุณธรรมและจริยธรรม
+เพื่อพัฒนาความประพฤติ ความรับผิดชอบ และการอยู่ร่วมกับผู้อื่น
+อย่างเหมาะสม พร้อมทั้งส่งเสริมการมีจิตสาธารณะ
+และการนำหลักคุณธรรมไปใช้ในชีวิตประจำวัน
 </p>
 
 <span class="tag">
-Achievement
+Moral & Ethics
 </span>
 
 </div>
@@ -841,11 +959,15 @@ Achievement
 <div
 class="certificate-image"
 onclick="openLightbox('S__9740302.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตรจิตอาสางานมหกรรมวิชาการ"
+onkeydown="handleImageKey(event, 'S__9740302.jpg')"
 >
 
 <img
 src="S__9740302.jpg"
-alt="เกียรติบัตรที่ 5"
+alt="เกียรติบัตรจิตอาสางานมหกรรมวิชาการ เปิดบ้านสู่ EEC"
 loading="lazy"
 >
 
@@ -855,24 +977,26 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 5
+จิตอาสางานมหกรรมวิชาการ เปิดบ้านสู่ EEC
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-กิจกรรมการเรียนรู้เพื่อพัฒนาศักยภาพ
+งานมหกรรมวิชาการ
+“ทักษะสร้างสุข วิชาการสร้างงาน เปิดบ้านสู่ EEC”
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากกิจกรรมที่ส่งเสริมการพัฒนา
-ศักยภาพของผู้เรียน ทั้งด้านความรู้ ทักษะ และ
-ประสบการณ์ ช่วยให้สามารถเรียนรู้และพัฒนาตนเอง
-ได้อย่างต่อเนื่อง
+ปฏิบัติหน้าที่จิตอาสาในงานมหกรรมวิชาการ
+“ทักษะสร้างสุข วิชาการสร้างงาน เปิดบ้านสู่ EEC”
+มีส่วนร่วมในการสนับสนุนและอำนวยความสะดวกภายในงาน
+พร้อมทั้งฝึกความรับผิดชอบ การทำงานร่วมกับผู้อื่น
+และการมีจิตสาธารณะ
 </p>
 
 <span class="tag">
-Achievement
+Volunteer
 </span>
 
 </div>
@@ -890,11 +1014,15 @@ Achievement
 <div
 class="certificate-image"
 onclick="openLightbox('S__9740301.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตรการแข่งขันประกวดคำขวัญต่อต้านการทุจริต"
+onkeydown="handleImageKey(event, 'S__9740301.jpg')"
 >
 
 <img
 src="S__9740301.jpg"
-alt="เกียรติบัตรที่ 6"
+alt="เกียรติบัตรการแข่งขันประกวดคำขวัญต่อต้านการทุจริต"
 loading="lazy"
 >
 
@@ -904,24 +1032,25 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 6
+การแข่งขันประกวดคำขวัญต่อต้านการทุจริต
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-กิจกรรมส่งเสริมทักษะและความสามารถ
+การแข่งขันประกวดคำขวัญต่อต้านการทุจริต
+ระดับมัธยมศึกษาตอนปลาย
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
-ที่ช่วยพัฒนาความสามารถและทักษะที่จำเป็น
-ทั้งด้านการเรียนรู้ การสื่อสาร ความรับผิดชอบ
-และการทำงานร่วมกับผู้อื่น
+เข้าร่วมการแข่งขันประกวดคำขวัญต่อต้านการทุจริต
+ระดับมัธยมศึกษาตอนปลาย เพื่อส่งเสริมแนวคิดด้านความซื่อสัตย์
+สุจริต และความรับผิดชอบต่อสังคม รวมถึงฝึกทักษะการคิดสร้างสรรค์
+และการถ่ายทอดแนวคิดผ่านข้อความอย่างกระชับและมีความหมาย
 </p>
 
 <span class="tag">
-Achievement
+Anti-Corruption
 </span>
 
 </div>
@@ -939,11 +1068,15 @@ Achievement
 <div
 class="certificate-image"
 onclick="openLightbox('S__9740300.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตรโครงงานห้องเรียนสีขาว"
+onkeydown="handleImageKey(event, 'S__9740300.jpg')"
 >
 
 <img
 src="S__9740300.jpg"
-alt="เกียรติบัตรที่ 7"
+alt="เกียรติบัตรโครงงานห้องเรียนสีขาว"
 loading="lazy"
 >
 
@@ -953,24 +1086,24 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 7
+โครงงานห้องเรียนสีขาว ป้องกันยาเสพติดและอบายมุข
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-กิจกรรมพัฒนาทักษะการเรียนรู้
+การประกวดโครงงานห้องเรียนสีขาว
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากกิจกรรมที่ช่วยส่งเสริม
-การเรียนรู้และการพัฒนาตนเอง ทำให้ได้รับ
-ประสบการณ์ใหม่ ๆ และสามารถนำความรู้
-ไปต่อยอดในการเรียนและการทำงานในอนาคต
+เป็นตัวแทนนักเรียนเข้าร่วมการประกวดโครงงาน
+ด้านการป้องกันยาเสพติดและอบายมุข เพื่อส่งเสริมสภาพแวดล้อม
+ที่ปลอดภัยในสถานศึกษา พร้อมทั้งฝึกทักษะการวางแผน
+การทำงานเป็นทีม การนำเสนอผลงาน และความรับผิดชอบต่อส่วนรวม
 </p>
 
 <span class="tag">
-Achievement
+White Classroom Project
 </span>
 
 </div>
@@ -988,11 +1121,15 @@ Achievement
 <div
 class="certificate-image"
 onclick="openLightbox('S__9740299.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตรวัยรุ่นยุคใหม่ใส่ใจสุขภาพจิต"
+onkeydown="handleImageKey(event, 'S__9740299.jpg')"
 >
 
 <img
 src="S__9740299.jpg"
-alt="เกียรติบัตรที่ 8"
+alt="เกียรติบัตรวัยรุ่นยุคใหม่ใส่ใจสุขภาพจิต"
 loading="lazy"
 >
 
@@ -1002,24 +1139,24 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 8
+วัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-กิจกรรมส่งเสริมความสามารถและประสบการณ์
+การอบรม “วัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต”
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
-ที่เปิดโอกาสให้พัฒนาความรู้และประสบการณ์
-พร้อมฝึกทักษะการเรียนรู้ การคิดวิเคราะห์
-และการนำความรู้ไปประยุกต์ใช้
+เข้าร่วมการอบรมเพื่อเรียนรู้เกี่ยวกับสุขภาพจิต
+และการดูแลสุขภาพจิตของวัยรุ่น เรียนรู้แนวทางการดูแลตนเอง
+การจัดการกับปัญหาและความเครียดอย่างเหมาะสม
+รวมถึงการสร้างความเข้าใจและทัศนคติที่ดีต่อสุขภาพจิต
 </p>
 
 <span class="tag">
-Achievement
+Mental Health
 </span>
 
 </div>
@@ -1037,11 +1174,15 @@ Achievement
 <div
 class="certificate-image"
 onclick="openLightbox('S__9740298.jpg')"
+role="button"
+tabindex="0"
+aria-label="เปิดดูเกียรติบัตร Be Internet Awesome"
+onkeydown="handleImageKey(event, 'S__9740298.jpg')"
 >
 
 <img
 src="S__9740298.jpg"
-alt="เกียรติบัตรที่ 9"
+alt="เกียรติบัตร Be Internet Awesome"
 loading="lazy"
 >
 
@@ -1051,24 +1192,24 @@ loading="lazy"
 <div class="certificate-content">
 
 <h3>
-เกียรติบัตรที่ 9
+Be Internet Awesome — ทักษะการใช้งานอินเทอร์เน็ตอย่างปลอดภัย
 </h3>
 
 <p>
 <strong>ชื่อกิจกรรม / หลักสูตร:</strong>
-กิจกรรมเสริมสร้างประสบการณ์และการเรียนรู้
+Be Internet Awesome
 </p>
 
 <p>
 <strong>รายละเอียด:</strong>
-ได้รับเกียรติบัตรจากกิจกรรมที่ช่วยส่งเสริม
-การเรียนรู้จากประสบการณ์จริง พัฒนาทักษะ
-การทำงานอย่างเป็นระบบ และสร้างแรงบันดาลใจ
-ในการพัฒนาตนเองอย่างต่อเนื่อง
+ผ่านการทดสอบทักษะการใช้งานอินเทอร์เน็ตอย่างปลอดภัย
+และสร้างสรรค์ เรียนรู้แนวทางการใช้งานอินเทอร์เน็ตอย่างเหมาะสม
+การปกป้องข้อมูลส่วนบุคคล การรู้เท่าทันสื่อดิจิทัล
+และการสร้างประสบการณ์ออนไลน์ที่ปลอดภัย
 </p>
 
 <span class="tag">
-Achievement
+Digital Literacy
 </span>
 
 </div>
@@ -1134,6 +1275,9 @@ class="next-card"
 <div
 id="lightbox"
 class="lightbox"
+role="dialog"
+aria-modal="true"
+aria-label="แสดงรูปเกียรติบัตร"
 onclick="closeLightbox()"
 >
 
@@ -1141,6 +1285,7 @@ onclick="closeLightbox()"
 class="lightbox-close"
 onclick="closeLightbox(event)"
 aria-label="ปิดรูป"
+type="button"
 >
 ×
 </button>
@@ -1201,13 +1346,31 @@ function openLightbox(imageSrc) {
 
     lightboxImage.src = imageSrc;
 
-
     lightbox.classList.add("active");
 
-
     document.body.style.overflow = "hidden";
+
 }
 
+
+/* =========================================================
+   KEYBOARD OPEN IMAGE
+========================================================= */
+
+function handleImageKey(event, imageSrc) {
+
+    if (
+        event.key === "Enter" ||
+        event.key === " "
+    ) {
+
+        event.preventDefault();
+
+        openLightbox(imageSrc);
+
+    }
+
+}
 
 
 /* =========================================================
@@ -1232,7 +1395,6 @@ function closeLightbox(event) {
 
     lightbox.classList.remove("active");
 
-
     document.body.style.overflow = "";
 
 
@@ -1243,7 +1405,6 @@ function closeLightbox(event) {
     }, 300);
 
 }
-
 
 
 /* =========================================================
@@ -1263,10 +1424,33 @@ document.addEventListener(
     }
 );
 
+
+/* =========================================================
+   PREVENT SPACE SCROLL WHEN LIGHTBOX IS OPEN
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const lightbox =
+            document.getElementById("lightbox");
+
+        if (
+            event.key === " " &&
+            lightbox.classList.contains("active")
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
+
 </script>
 
 
 </body>
 
 </html>
-
