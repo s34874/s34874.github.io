@@ -15,19 +15,37 @@
 ========================================================= */
 
 :root{
-    --bg:#f4f7fb;
+
+    --bg:#fff8fb;
+
     --white:#ffffff;
-    --dark:#172033;
-    --text:#596579;
 
-    --primary:#2750f5;
-    --secondary:#00bcd4;
+    --dark:#26352e;
 
-    --soft:#eef3ff;
-    --border:#e4e9f2;
+    --text:#64736b;
+
+    --muted:#8c9993;
+
+    --pink:#f28db6;
+
+    --pink-dark:#df6797;
+
+    --pink-light:#fff0f6;
+
+    --green:#72b99a;
+
+    --green-dark:#4d9878;
+
+    --green-light:#edf8f2;
+
+    --border:#f0dfe7;
 
     --shadow:
-        0 15px 40px rgba(39,80,245,.10);
+        0 18px 45px rgba(220,105,150,.10);
+
+    --shadow-green:
+        0 25px 60px rgba(85,160,125,.16);
+
 }
 
 
@@ -41,35 +59,326 @@
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
 
+
 body{
+
     font-family:
         "Segoe UI",
         "Noto Sans Thai",
         Arial,
         sans-serif;
 
-    background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(39,80,245,.08),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 90% 30%,
-            rgba(0,188,212,.08),
-            transparent 25%
-        ),
-        var(--bg);
-
     color:var(--dark);
 
     line-height:1.7;
 
     overflow-x:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(242,141,182,.18),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 92% 18%,
+            rgba(114,185,154,.17),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(242,141,182,.08),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+}
+
+
+/* =========================================================
+   PAGE LOADER
+========================================================= */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #fff7fb 0%,
+            #f2fbf6 50%,
+            #ffffff 100%
+        );
+
+    animation:
+        loaderHide 2.2s ease forwards;
+
+    pointer-events:none;
+
+}
+
+
+.loader-content{
+
+    width:min(520px,82%);
+
+    text-align:center;
+
+    animation:
+        loaderZoom .9s ease both;
+
+}
+
+
+.loader-logo{
+
+    font-size:
+        clamp(32px,7vw,55px);
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    color:var(--dark);
+
+}
+
+
+.loader-logo span{
+
+    color:var(--pink);
+
+}
+
+
+.loader-subtitle{
+
+    margin-top:5px;
+
+    color:var(--green-dark);
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+}
+
+
+.loader-line{
+
+    position:relative;
+
+    width:100%;
+
+    height:5px;
+
+    margin-top:25px;
+
+    overflow:hidden;
+
+    border-radius:50px;
+
+    background:
+        rgba(114,185,154,.16);
+
+}
+
+
+.loader-line::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:0;
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--pink),
+            var(--green)
+        );
+
+    animation:
+        loading 1.6s ease forwards;
+
+}
+
+
+@keyframes loading{
+
+    0%{
+        width:0;
+    }
+
+    100%{
+        width:100%;
+    }
+
+}
+
+
+@keyframes loaderZoom{
+
+    0%{
+        opacity:0;
+
+        transform:
+            scale(.88)
+            translateY(20px);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+@keyframes loaderHide{
+
+    0%{
+        opacity:1;
+
+        visibility:visible;
+    }
+
+    85%{
+        opacity:1;
+
+        visibility:visible;
+    }
+
+    100%{
+        opacity:0;
+
+        visibility:hidden;
+    }
+
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATIONS
+========================================================= */
+
+.bg-shape{
+
+    position:fixed;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+    border-radius:50%;
+
+}
+
+
+.shape-one{
+
+    width:180px;
+
+    height:180px;
+
+    top:150px;
+
+    left:-90px;
+
+    background:
+        rgba(242,141,182,.13);
+
+    animation:
+        floating 7s ease-in-out infinite;
+
+}
+
+
+.shape-two{
+
+    width:230px;
+
+    height:230px;
+
+    right:-120px;
+
+    top:45%;
+
+    background:
+        rgba(114,185,154,.13);
+
+    animation:
+        floating 9s ease-in-out infinite reverse;
+
+}
+
+
+.shape-three{
+
+    width:120px;
+
+    height:120px;
+
+    left:10%;
+
+    bottom:50px;
+
+    background:
+        rgba(242,141,182,.08);
+
+    animation:
+        floating 8s ease-in-out infinite;
+
+}
+
+
+@keyframes floating{
+
+    0%,
+    100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-22px);
+    }
+
 }
 
 
@@ -78,28 +387,39 @@ body{
 ========================================================= */
 
 .navbar{
+
     position:sticky;
+
     top:0;
 
-    z-index:1000;
+    z-index:5000;
 
     width:100%;
 
     background:
         rgba(255,255,255,.88);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 
     border-bottom:
-        1px solid rgba(228,233,242,.8);
+        1px solid rgba(240,223,231,.9);
 
     box-shadow:
-        0 5px 25px rgba(20,40,80,.06);
+        0 6px 25px
+        rgba(70,100,85,.06);
+
+    animation:
+        navbarShow .8s ease 2s both;
+
 }
 
 
 .nav-container{
+
     max-width:1200px;
 
     min-height:72px;
@@ -115,13 +435,13 @@ body{
 
     justify-content:space-between;
 
-    gap:30px;
+    gap:25px;
+
 }
 
 
-/* LOGO */
-
 .logo{
+
     color:var(--dark);
 
     text-decoration:none;
@@ -135,22 +455,29 @@ body{
     white-space:nowrap;
 
     transition:.3s;
+
 }
 
 
 .logo span{
-    color:var(--primary);
+
+    color:var(--pink);
+
 }
 
 
 .logo:hover{
-    transform:translateY(-2px);
+
+    color:var(--green-dark);
+
+    transform:
+        translateY(-2px);
+
 }
 
 
-/* NAV LINKS */
-
 .nav-links{
+
     list-style:none;
 
     display:flex;
@@ -159,13 +486,15 @@ body{
 
     justify-content:center;
 
-    gap:5px;
+    gap:4px;
 
     flex-wrap:wrap;
+
 }
 
 
 .nav-links a{
+
     position:relative;
 
     display:block;
@@ -173,7 +502,7 @@ body{
     padding:
         9px 11px;
 
-    color:#536078;
+    color:#64736b;
 
     text-decoration:none;
 
@@ -181,104 +510,160 @@ body{
 
     font-weight:600;
 
-    border-radius:10px;
+    border-radius:12px;
 
     transition:.3s;
+
 }
 
 
 .nav-links a::after{
+
     content:"";
 
     position:absolute;
 
     left:50%;
+
     bottom:4px;
 
     width:0;
+
     height:2px;
 
+    border-radius:20px;
+
     background:
+
         linear-gradient(
             90deg,
-            var(--primary),
-            var(--secondary)
+            var(--pink),
+            var(--green)
         );
 
     transform:
         translateX(-50%);
 
     transition:.3s;
+
 }
 
 
 .nav-links a:hover{
-    color:var(--primary);
 
-    background:var(--soft);
+    color:var(--pink-dark);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--pink-light),
+            var(--green-light)
+        );
+
 }
 
 
 .nav-links a:hover::after{
+
     width:55%;
+
+}
+
+
+@keyframes navbarShow{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(-25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 
 /* =========================================================
-   PAGE
+   MAIN PAGE
 ========================================================= */
 
 .page{
+
     min-height:
         calc(100vh - 72px);
 
     padding:
         80px 20px 100px;
+
 }
 
 
 /* =========================================================
-   HEADER
+   PAGE HEADER
 ========================================================= */
 
 .page-header{
+
     max-width:900px;
 
     margin:
         0 auto 60px;
 
     text-align:center;
+
+    animation:
+        headerShow .9s ease 2.15s both;
+
 }
 
 
 .small-title{
+
     display:inline-block;
 
-    margin-bottom:12px;
+    margin-bottom:14px;
 
     padding:
-        6px 16px;
+        7px 18px;
 
     border-radius:50px;
 
     background:
+
         linear-gradient(
             90deg,
-            rgba(39,80,245,.10),
-            rgba(0,188,212,.10)
+            var(--pink-light),
+            var(--green-light)
         );
 
-    color:var(--primary);
+    border:
+        1px solid
+        rgba(242,141,182,.18);
+
+    color:var(--pink-dark);
 
     font-size:12px;
 
     font-weight:800;
 
     letter-spacing:2px;
+
 }
 
 
 .page-header h1{
+
     margin-bottom:18px;
 
     font-size:
@@ -289,26 +674,54 @@ body{
     font-weight:900;
 
     background:
+
         linear-gradient(
             90deg,
-            #172033,
-            #2750f5,
-            #00a9c0
+            var(--pink-dark),
+            #bc7098,
+            var(--green-dark)
         );
 
     -webkit-background-clip:text;
+
     -webkit-text-fill-color:transparent;
+
 }
 
 
 .page-header p{
-    max-width:680px;
+
+    max-width:720px;
 
     margin:auto;
 
-    color:#6c768a;
+    color:#718078;
 
     font-size:16px;
+
+}
+
+
+@keyframes headerShow{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 
@@ -317,9 +730,11 @@ body{
 ========================================================= */
 
 .container{
+
     max-width:1100px;
 
     margin:auto;
+
 }
 
 
@@ -328,105 +743,236 @@ body{
 ========================================================= */
 
 .interest-grid{
+
     display:grid;
 
     grid-template-columns:
         repeat(2,1fr);
 
     gap:28px;
+
 }
 
 
 /* =========================================================
-   CARD
+   INTEREST CARD
 ========================================================= */
 
 .interest-card{
+
     position:relative;
 
-    padding:35px;
+    padding:36px;
 
     background:
-        rgba(255,255,255,.94);
+        rgba(255,255,255,.95);
 
     border:
         1px solid var(--border);
 
-    border-radius:25px;
+    border-radius:28px;
 
-    box-shadow:var(--shadow);
+    box-shadow:
+        var(--shadow);
 
     overflow:hidden;
+
+    opacity:0;
+
+    transform:
+        translateY(35px);
+
+    animation:
+        cardShow .8s ease forwards;
 
     transition:
         transform .4s ease,
         box-shadow .4s ease,
         border-color .4s ease;
+
 }
 
 
 .interest-card::before{
+
     content:"";
 
     position:absolute;
 
     top:0;
+
     left:0;
 
     width:100%;
-    height:4px;
+
+    height:5px;
 
     background:
+
         linear-gradient(
             90deg,
-            var(--primary),
-            var(--secondary)
+            var(--pink),
+            var(--green)
         );
+
+}
+
+
+.interest-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-65px;
+
+    bottom:-65px;
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    background:
+        rgba(114,185,154,.07);
+
+    transition:.4s;
+
 }
 
 
 .interest-card:hover{
+
     transform:
-        translateY(-8px);
+        translateY(-9px);
 
     border-color:
-        rgba(39,80,245,.25);
+        rgba(114,185,154,.4);
 
     box-shadow:
-        0 25px 55px
-        rgba(39,80,245,.15);
+        var(--shadow-green);
+
+}
+
+
+.interest-card:hover::after{
+
+    transform:
+        scale(1.4);
+
+}
+
+
+.interest-card:nth-child(1){
+
+    animation-delay:
+        2.25s;
+
+}
+
+
+.interest-card:nth-child(2){
+
+    animation-delay:
+        2.4s;
+
+}
+
+
+.interest-card:nth-child(3){
+
+    animation-delay:
+        2.55s;
+
+}
+
+
+.interest-card:nth-child(4){
+
+    animation-delay:
+        2.7s;
+
+}
+
+
+@keyframes cardShow{
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 
 /* =========================================================
-   NUMBER
+   CARD NUMBER
 ========================================================= */
 
 .card-number{
-    width:48px;
-    height:48px;
+
+    position:relative;
+
+    z-index:2;
+
+    width:50px;
+
+    height:50px;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     margin-bottom:20px;
 
-    border-radius:15px;
+    border-radius:16px;
 
     background:
+
         linear-gradient(
             135deg,
-            rgba(39,80,245,.12),
-            rgba(0,188,212,.12)
+            var(--pink-light),
+            var(--green-light)
         );
 
-    color:var(--primary);
+    border:
+        1px solid
+        rgba(242,141,182,.16);
+
+    color:var(--pink-dark);
 
     font-size:17px;
 
     font-weight:900;
+
+    transition:.4s;
+
+}
+
+
+.interest-card:hover .card-number{
+
+    color:white;
+
+    transform:
+        rotate(-5deg)
+        scale(1.08);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--green)
+        );
+
 }
 
 
@@ -435,34 +981,44 @@ body{
 ========================================================= */
 
 .interest-card h2{
-    margin-bottom:14px;
+
+    position:relative;
+
+    z-index:2;
+
+    margin-bottom:15px;
+
+    color:var(--dark);
 
     font-size:23px;
 
     font-weight:800;
 
-    color:var(--dark);
 }
 
 
 .interest-card h2::after{
+
     content:"";
 
     display:block;
 
-    width:45px;
+    width:50px;
+
     height:3px;
 
     margin-top:9px;
 
-    border-radius:10px;
+    border-radius:20px;
 
     background:
+
         linear-gradient(
             90deg,
-            var(--primary),
-            var(--secondary)
+            var(--pink),
+            var(--green)
         );
+
 }
 
 
@@ -471,11 +1027,19 @@ body{
 ========================================================= */
 
 .interest-card p{
+
+    position:relative;
+
+    z-index:2;
+
     color:var(--text);
 
     font-size:15px;
 
-    line-height:1.9;
+    line-height:2;
+
+    text-align:justify;
+
 }
 
 
@@ -484,71 +1048,39 @@ body{
 ========================================================= */
 
 .tag{
+
+    position:relative;
+
+    z-index:2;
+
     display:inline-block;
 
-    margin-top:20px;
+    margin-top:21px;
 
     padding:
-        5px 13px;
+        6px 15px;
 
     border-radius:50px;
 
     background:
-        rgba(39,80,245,.08);
 
-    color:var(--primary);
+        linear-gradient(
+            90deg,
+            var(--pink-light),
+            var(--green-light)
+        );
+
+    border:
+        1px solid
+        rgba(114,185,154,.18);
+
+    color:var(--green-dark);
 
     font-size:11px;
 
     font-weight:800;
 
     letter-spacing:.8px;
-}
-
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-.interest-card{
-    opacity:0;
-
-    transform:
-        translateY(30px);
-
-    animation:
-        reveal .8s ease forwards;
-}
-
-
-.interest-card:nth-child(1){
-    animation-delay:.1s;
-}
-
-
-.interest-card:nth-child(2){
-    animation-delay:.2s;
-}
-
-
-.interest-card:nth-child(3){
-    animation-delay:.3s;
-}
-
-
-.interest-card:nth-child(4){
-    animation-delay:.4s;
-}
-
-
-@keyframes reveal{
-
-    to{
-        opacity:1;
-
-        transform:
-            translateY(0);
-    }
 
 }
 
@@ -558,6 +1090,7 @@ body{
 ========================================================= */
 
 .next-page{
+
     display:grid;
 
     grid-template-columns:
@@ -566,23 +1099,29 @@ body{
     gap:20px;
 
     margin-top:55px;
+
+    animation:
+        nextShow .8s ease 2.9s both;
+
 }
 
 
 .next-card{
+
     position:relative;
 
     display:block;
 
-    padding:25px 28px;
+    padding:
+        25px 30px;
 
     background:
-        rgba(255,255,255,.88);
+        rgba(255,255,255,.92);
 
     border:
         1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:22px;
 
     color:var(--dark);
 
@@ -590,40 +1129,95 @@ body{
 
     box-shadow:
         0 10px 30px
-        rgba(20,40,80,.06);
+        rgba(70,100,85,.06);
+
+    overflow:hidden;
 
     transition:.35s;
 
-    overflow:hidden;
+}
+
+
+.next-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            var(--pink),
+            var(--green)
+        );
+
 }
 
 
 .next-card:hover{
+
     transform:
         translateY(-5px);
 
     border-color:
-        rgba(39,80,245,.25);
+        rgba(114,185,154,.35);
 
     box-shadow:
-        0 18px 40px
-        rgba(39,80,245,.12);
+        0 20px 45px
+        rgba(85,160,125,.13);
+
 }
 
 
 .next-card small{
-    color:#8993a7;
+
+    color:#89958f;
 
     font-size:12px;
 
     font-weight:700;
+
 }
 
 
 .next-card h3{
+
     margin-top:5px;
 
     font-size:18px;
+
+}
+
+
+@keyframes nextShow{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 
@@ -632,24 +1226,35 @@ body{
 ========================================================= */
 
 footer{
-    padding:35px 20px;
 
-    background:#172033;
+    padding:
+        38px 20px;
 
-    color:#cbd3e1;
+    background:
+
+        linear-gradient(
+            135deg,
+            #26352e,
+            #39604d
+        );
+
+    color:#dce9e2;
 
     text-align:center;
 
     font-size:13px;
+
 }
 
 
 footer strong{
+
     color:#ffffff;
 
     font-size:15px;
 
     letter-spacing:1px;
+
 }
 
 
@@ -660,28 +1265,36 @@ footer strong{
 @media(max-width:900px){
 
     .nav-container{
+
         flex-direction:column;
 
         padding:
             15px 20px;
+
     }
 
 
     .nav-links{
+
         gap:3px;
+
     }
 
 
     .nav-links a{
+
         padding:
             7px 8px;
 
         font-size:13px;
+
     }
 
 
     .page{
+
         padding-top:60px;
+
     }
 
 }
@@ -694,52 +1307,75 @@ footer strong{
 @media(max-width:650px){
 
     .page{
+
         padding:
             50px 15px 70px;
+
     }
 
 
     .page-header{
+
         margin-bottom:40px;
+
     }
 
 
     .page-header h1{
+
         font-size:34px;
+
     }
 
 
     .page-header p{
+
         font-size:14px;
+
     }
 
 
     .interest-grid{
+
         grid-template-columns:1fr;
 
         gap:20px;
+
     }
 
 
     .interest-card{
-        padding:27px 24px;
+
+        padding:
+            28px 23px;
+
     }
 
 
     .interest-card h2{
+
         font-size:21px;
+
     }
 
 
     .interest-card p{
+
         font-size:14px;
+
+        line-height:1.9;
+
+        text-align:left;
+
     }
 
 
     .next-page{
+
         grid-template-columns:1fr;
 
         margin-top:35px;
+
     }
 
 }
@@ -752,25 +1388,92 @@ footer strong{
 @media(max-width:420px){
 
     .logo{
+
         font-size:17px;
+
     }
 
 
     .nav-links{
+
         justify-content:center;
+
     }
 
 
     .nav-links a{
-        padding:
-            6px;
+
+        padding:6px;
 
         font-size:12px;
+
     }
 
 
     .page-header h1{
+
         font-size:30px;
+
+    }
+
+
+    .interest-card{
+
+        padding:
+            24px 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+
+        scroll-behavior:auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+
+    .loader{
+
+        display:none;
+
+    }
+
+
+    .navbar,
+    .page-header,
+    .interest-card,
+    .next-page{
+
+        opacity:1;
+
+        transform:none;
+
     }
 
 }
@@ -784,68 +1487,111 @@ footer strong{
 
 
 <!-- =======================================================
+     LOADING SCREEN
+======================================================= -->
+
+<div class="loader">
+
+    <div class="loader-content">
+
+        <div class="loader-logo">
+            MY<span>PORTFOLIO</span>
+        </div>
+
+        <div class="loader-subtitle">
+            EDUCATION INTEREST
+        </div>
+
+        <div class="loader-line"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     BACKGROUND DECORATIONS
+======================================================= -->
+
+<div class="bg-shape shape-one"></div>
+
+<div class="bg-shape shape-two"></div>
+
+<div class="bg-shape shape-three"></div>
+
+
+<!-- =======================================================
      NAVBAR
 ======================================================= -->
 
 <nav class="navbar">
 
-<div class="nav-container">
-
-<a href="index.html" class="logo">
-MY<span>PORTFOLIO</span>
-</a>
+    <div class="nav-container">
 
 
-<ul class="nav-links">
+        <a
+            href="index.html"
+            class="logo"
+        >
+            MY<span>PORTFOLIO</span>
+        </a>
 
-<li>
-<a href="index.html">
-หน้าหลัก
-</a>
-</li>
 
-<li>
-<a href="preface.html">
-คำนำ
-</a>
-</li>
+        <ul class="nav-links">
 
-<li>
-<a href="profile.html">
-ประวัติส่วนตัว
-</a>
-</li>
+            <li>
+                <a href="index.html">
+                    หน้าหลัก
+                </a>
+            </li>
 
-<li>
-<a href="education.html">
-การศึกษา
-</a>
-</li>
 
-<li>
-<a href="certificates.html">
-เกียรติบัตร
-</a>
-</li>
+            <li>
+                <a href="preface.html">
+                    คำนำ
+                </a>
+            </li>
 
-<li>
-<a href="activities.html">
-ความสนใจในการศึกษาต่อ
-</a>
-</li>
 
-<li>
-<a href="contact.html">
-ติดต่อ
-</a>
-</li>
+            <li>
+                <a href="profile.html">
+                    ประวัติส่วนตัว
+                </a>
+            </li>
 
-</ul>
 
-</div>
+            <li>
+                <a href="education.html">
+                    การศึกษา
+                </a>
+            </li>
+
+
+            <li>
+                <a href="certificates.html">
+                    เกียรติบัตร
+                </a>
+            </li>
+
+
+            <li>
+                <a href="activities.html">
+                    ความสนใจในการศึกษาต่อ
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html">
+                    ติดต่อ
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
 
 </nav>
-
 
 
 <!-- =======================================================
@@ -855,194 +1601,216 @@ MY<span>PORTFOLIO</span>
 <main class="page">
 
 
-<header class="page-header">
+    <!-- ===================================================
+         HEADER
+    =================================================== -->
 
-<div class="small-title">
-EDUCATION INTEREST
-</div>
+    <header class="page-header">
 
-<h1>
-ความสนใจในการศึกษาต่อ
-</h1>
-
-<p>
-เส้นทางความสนใจ แรงบันดาลใจ การพัฒนาตนเอง
-และเป้าหมายในการศึกษาต่อ
-</p>
-
-</header>
+        <div class="small-title">
+            EDUCATION INTEREST
+        </div>
 
 
-
-<div class="container">
-
-
-<div class="interest-grid">
+        <h1>
+            ความสนใจในการศึกษาต่อ
+        </h1>
 
 
-<!-- =====================================================
-     01
-===================================================== -->
+        <p>
+            เส้นทางความสนใจ แรงบันดาลใจ
+            การพัฒนาตนเอง และเป้าหมายในการศึกษาต่อ
+            เพื่อก้าวไปสู่เส้นทางด้านจิตวิทยา
+        </p>
 
-<div class="interest-card">
-
-<div class="card-number">
-01
-</div>
-
-<h2>
-จุดเริ่มต้นของความสนใจ
-</h2>
-
-<p>
-ความสนใจในการศึกษาต่อเริ่มต้นจากความชื่นชอบในการเรียนรู้
-และความสนใจเกี่ยวกับวิทยาศาสตร์ สุขภาพ และการช่วยเหลือผู้อื่น
-จึงทำให้เริ่มค้นหาข้อมูลเกี่ยวกับสายการเรียนและอาชีพที่เหมาะสม
-กับความสนใจและความสามารถของตนเอง
-</p>
-
-<span class="tag">
-INTEREST
-</span>
-
-</div>
+    </header>
 
 
+    <!-- ===================================================
+         CONTENT
+    =================================================== -->
 
-<!-- =====================================================
-     02
-===================================================== -->
-
-<div class="interest-card">
-
-<div class="card-number">
-02
-</div>
-
-<h2>
-เหตุผลที่สนใจสายการแพทย์
-</h2>
-
-<p>
-สนใจสายการแพทย์เพราะเป็นสาขาที่ได้ใช้ความรู้ทางวิทยาศาสตร์
-ควบคู่กับการดูแลและช่วยเหลือผู้อื่น
-อีกทั้งเป็นสายงานที่ต้องเรียนรู้และพัฒนาความรู้อยู่เสมอ
-จึงเป็นเส้นทางที่รู้สึกว่าน่าสนใจและมีความหมาย
-</p>
-
-<span class="tag">
-MEDICAL
-</span>
-
-</div>
+    <div class="container">
 
 
-
-<!-- =====================================================
-     03
-===================================================== -->
-
-<div class="interest-card">
-
-<div class="card-number">
-03
-</div>
-
-<h2>
-การพัฒนาตนเอง
-</h2>
-
-<p>
-ตั้งใจพัฒนาตนเองทั้งด้านการเรียน ความรู้ และทักษะต่าง ๆ
-โดยให้ความสำคัญกับความรับผิดชอบ การจัดการเวลา
-การทำงานร่วมกับผู้อื่น และการเรียนรู้สิ่งใหม่ ๆ
-เพื่อเตรียมความพร้อมสำหรับการศึกษาต่อในอนาคต
-</p>
-
-<span class="tag">
-DEVELOPMENT
-</span>
-
-</div>
+        <div class="interest-grid">
 
 
+            <!-- =============================================
+                 CARD 01
+            ============================================== -->
 
-<!-- =====================================================
-     04
-===================================================== -->
+            <div class="interest-card">
 
-<div class="interest-card">
-
-<div class="card-number">
-04
-</div>
-
-<h2>
-เป้าหมายในอนาคต
-</h2>
-
-<p>
-มีเป้าหมายที่จะศึกษาต่อในสายการแพทย์
-และพัฒนาความรู้ความสามารถของตนเองอย่างต่อเนื่อง
-เพื่อเตรียมความพร้อมสำหรับการประกอบอาชีพในอนาคต
-และนำความรู้ไปใช้ในการดูแลและช่วยเหลือผู้อื่น
-</p>
-
-<span class="tag">
-FUTURE GOAL
-</span>
-
-</div>
+                <div class="card-number">
+                    01
+                </div>
 
 
-</div>
+                <h2>
+                    จุดเริ่มต้นของความสนใจ
+                </h2>
 
 
-
-<!-- =====================================================
-     NEXT PAGE
-===================================================== -->
-
-<div class="next-page">
-
-<a
-href="certificates.html"
-class="next-card"
->
-
-<small>
-ก่อนหน้า
-</small>
-
-<h3>
-← เกียรติบัตร
-</h3>
-
-</a>
+                <p>
+                    จุดเริ่มต้นของความสนใจเกิดจากการที่คนรอบข้าง
+                    ชอบมาปรึกษาปัญหา แล้วดิฉันรู้สึกมีคุณค่าทุกครั้ง
+                    ที่ได้ช่วยรับฟัง จึงเกิดความสนใจและอยากเรียนจิตวิทยา
+                    คณะศิลปศาสตร์ เพื่อเข้าใจคนอื่นอย่างเป็นระบบ
+                    และสามารถช่วยเหลือได้อย่างถูกวิธี
+                </p>
 
 
-<a
-href="contact.html"
-class="next-card"
->
+                <span class="tag">
+                    INTEREST
+                </span>
 
-<small>
-ถัดไป
-</small>
-
-<h3>
-ข้อมูลการติดต่อ →
-</h3>
-
-</a>
-
-</div>
+            </div>
 
 
-</div>
+            <!-- =============================================
+                 CARD 02
+            ============================================== -->
+
+            <div class="interest-card">
+
+                <div class="card-number">
+                    02
+                </div>
+
+
+                <h2>
+                    เหตุผลที่สนใจคณะนี้
+                </h2>
+
+
+                <p>
+                    สนใจคณะนี้เพราะมองว่าปัญหาสุขภาพจิตเป็นเรื่องสำคัญ
+                    ในปัจจุบัน จึงอยากเรียนรู้ทฤษฎีและกระบวนการทาง
+                    จิตวิทยาที่ถูกต้อง เพื่อนำความรู้ไปช่วยรับฟัง
+                    เยียวยา และซัพพอร์ตผู้คนรอบข้างให้มีชีวิตที่ดีขึ้นค่ะ
+                </p>
+
+
+                <span class="tag">
+                    PSYCHOLOGY
+                </span>
+
+            </div>
+
+
+            <!-- =============================================
+                 CARD 03
+            ============================================== -->
+
+            <div class="interest-card">
+
+                <div class="card-number">
+                    03
+                </div>
+
+
+                <h2>
+                    การพัฒนาตนเอง
+                </h2>
+
+
+                <p>
+                    มองว่าจิตวิทยาคือเครื่องมือพัฒนาตนเองที่ดีที่สุด
+                    เพราะการจะพัฒนาชีวิตด้านอื่นได้ ต้องเริ่มจากการเข้าใจ
+                    ความคิดและอารมณ์ของตัวเองก่อน การเรียนสาขานี้จึงช่วย
+                    ให้เราเท่าทันตัวเอง และเติบโตเป็นคนที่ดีขึ้นในทุก ๆ ด้าน
+                </p>
+
+
+                <span class="tag">
+                    SELF DEVELOPMENT
+                </span>
+
+            </div>
+
+
+            <!-- =============================================
+                 CARD 04
+            ============================================== -->
+
+            <div class="interest-card">
+
+                <div class="card-number">
+                    04
+                </div>
+
+
+                <h2>
+                    เป้าหมายในอนาคต
+                </h2>
+
+
+                <p>
+                    เป้าหมายในอนาคตคือการเป็นนักจิตวิทยาหรือผู้ให้คำปรึกษา
+                    ที่มีคุณภาพค่ะ อยากนำความรู้ที่เรียนมาไปช่วยรับฟัง
+                    ซัพพอร์ต และเยียวยาสุขภาพจิตของผู้คน เพื่อให้พวกเขา
+                    สามารถผ่านพ้นช่วงเวลาที่ยากลำบากไปได้
+                </p>
+
+
+                <span class="tag">
+                    FUTURE GOAL
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             NEXT PAGE
+        ================================================== -->
+
+        <div class="next-page">
+
+
+            <a
+                href="certificates.html"
+                class="next-card"
+            >
+
+                <small>
+                    ก่อนหน้า
+                </small>
+
+
+                <h3>
+                    ← เกียรติบัตร
+                </h3>
+
+            </a>
+
+
+            <a
+                href="contact.html"
+                class="next-card"
+            >
+
+                <small>
+                    ถัดไป
+                </small>
+
+
+                <h3>
+                    ข้อมูลการติดต่อ →
+                </h3>
+
+            </a>
+
+
+        </div>
+
+
+    </div>
 
 </main>
-
 
 
 <!-- =======================================================
@@ -1051,13 +1819,13 @@ class="next-card"
 
 <footer>
 
-<strong>
-MY PORTFOLIO
-</strong>
+    <strong>
+        MY PORTFOLIO
+    </strong>
 
-<br>
+    <br>
 
-© 2026 Portfolio
+    © 2026 Portfolio
 
 </footer>
 
